@@ -97,10 +97,11 @@
 			} else {
 				// object.animate('opacity', 0);
 			}
-			// if (object.isVideo) {
-			// 	console.info('object.top: '+object.top);
-			// 	object.animate('opacity', 0);
-			// }
+			if (object.isVideo && object.row >= -1) {
+				// console.info('object.top: '+object.top);
+				// object.animate('opacity', 0);
+				object.animate('top', '+='+(canvas.height - headerHeight), {duration: 2000});
+			}
 			if ( object.isLoom ) {
 				object.animate('height', canvas.height, {duration: 2000, onComplete: function(){
 					object.animate('top', canvas.height, {duration: 3000});
@@ -116,7 +117,7 @@
 		$.each(objects, function(index, object){
 			if (object.isLoom) { return false; }
 			// if (object.isVideo) {
-				object.animate('opacity', 0, {duration: 2000});
+				object.animate('opacity', 0, {duration: 1000});
 			// }
 		});
 	}
