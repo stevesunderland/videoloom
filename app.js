@@ -93,21 +93,26 @@
 			var top = canvas.height - headerHeight - rowHeight + 20;
 
 			if ( object.hoverMe ) {
-				object.animate('top', canvas.height, {duration: 2000});
+				object.animate('top', canvas.height-headerHeight*2-rowHeight, {duration: 2000});
 			} else {
 				// object.animate('opacity', 0);
 			}
+
 			if (object.isVideo && object.row >= -1) {
-				// console.info('object.top: '+object.top);
-				// object.animate('opacity', 0);
-				object.animate('top', '+='+(canvas.height - headerHeight), {duration: 2000});
+
+				console.info('object.row: '+object.row);
+				var top = ((canvas.height - headerHeight*2) - (rowHeight*object.row) );
+				console.info('top: '+top);
+
+				object.animate('top', '+='+top, {duration: 2000});
+
 			}
 			if ( object.isLoom ) {
 				object.animate('height', canvas.height, {duration: 2000, onComplete: function(){
 					object.animate('top', canvas.height, {duration: 3000});
 					fadeOutObjects();
 				}});
-				object.animate('opacity', 1, {duration: 2000 });
+				// object.animate('opacity', 1, {duration: 2000 });
 			}
 		});
 	}
