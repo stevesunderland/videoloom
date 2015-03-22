@@ -4,7 +4,138 @@ body, html {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
+
+	background-color: #666;
 }
-video {
+body, button {
+		font-family: 'Helvetica Neue', Helvetica, sans-serif;
+}
+/*video {
 	display: none;
+}*/
+.header {
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+	text-transform: uppercase;
+	z-index: 999;
+}
+
+.header .title {
+	/*text-transform: uppercase;*/
+	font-weight: 100;
+	letter-spacing: .2em;
+	margin-top: 1em;
+	/*margin-bottom: 1em;*/
+	font-size: 1.5em;
+	/*font-size: light;*/
+	color: rgba(255,255,255,0.25);
+}
+
+.header .buttons {
+	margin: 0 80px;
+}
+
+.header .link {
+	color: rgba(255,255,255,0.5);
+	font-size: 0.7em;
+	font-weight: 400;
+	letter-spacing: .2em;
+	cursor: pointer;
+	display: inline-block;
+	width: 25%;
+	padding: 1em 0;
+	transition: all 1s;
+}
+.header .link.hover,
+.header .link:hover {
+	/*background: blue;*/
+	color: white;
+}
+.header .link.selected {
+	color: gold;
+}
+.header button {
+	border: 2px solid #fff;
+	padding: 1em;
+	text-transform: uppercase;
+	background: transparent;
+	color: #fff;
+	opacity: 0.5;
+	font-size: 0.8em;
+	letter-spacing: .3em;
+	font-weight: 500;
+	transition: all 0.5s;
+	margin-top: 1.25em;
+	/*cursor: */
+}
+.header button.active {
+	border-color: gold;
+	color: gold;
+	opacity: 1;
+	cursor: pointer;
+}
+.header button.active:hover {
+	color: #333;
+	background-color: gold;
+}
+
+
+
+.thread {
+	position: absolute;
+	background-color: rgba(0,0,0,1);
+	z-index: 9;
+	opacity: 0.25;
+	transition: all 1s;
+	overflow: hidden;
+}
+.thread.selected,
+.thread.hover {
+	opacity: 0.5;
+}
+.thread video {
+	position: absolute;
+	min-height: 100%;
+	min-width: 100%;
+	top: 0;
+	left: 0;
+}
+
+
+
+
+
+
+.grid {
+	cursor: pointer;
+	border: 2px solid transparent;
+	position: absolute;
+	z-index: 999;
+	transition: all 1s;
+}
+.grid:hover {
+	border-color: white;
+}
+.grid.selected {
+	border-color: gold;
+	box-shadow: 0 0 5em rgba(0,0,0,0.5);
+}
+
+
+
+
+
+.overlay {
+	position: absolute;
+	z-index: 99999;
+	background-color: #000;
+	height: 100%;
+	width: 100%;
+}
+.overlay video {
+	min-height: 100%;
+	min-width: 100%;
 }
