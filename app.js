@@ -1,4 +1,3 @@
-var axis = ["perceptual", "conceptual"];
 var headerHeight = 80;
 var gutter = 18;
 
@@ -8,178 +7,175 @@ var windowWidth = $(window).width();
 var threadWidth = (windowWidth - headerHeight*2 - gutter)/4 - gutter;
 var threadHeight = (windowHeight - headerHeight*2 - gutter)/4 - gutter;
 
-// console.info('threadWidth: '+threadWidth);
-// console.info('threadHeight: '+threadHeight);
-
 var App = {
 	init: function(){
-		App.createLoom();
+		console.info('App.init');
+		App.showIntro();
+		// App.loadVideos();
+		// App.createLoom();
+	},
+	loadVideos: function(){
+		console.info('App.loadVideos');
+
+		$('.thread video').each(function(index){
+			// console.info('loading video '+index);
+			// console.info('source: '+$(this).find('source').data('src'));
+			$(this).find('source').attr('src', $(this).find('source').data('src'));
+		});
+	},
+	showIntro: function(){
+		console.info('App.showIntro')
+
+		$('#intro').addClass('active');
+
+		$(document).on('click', '#intro button', function(){
+			$('#intro').removeClass('active').addClass('leave');
+			App.createLoom();
+		});
 	},
 	createLoom: function(){
-		// console.info('begin create loom');
-		//draw headers
-		App.drawHeaders();
-		App.createGrid();
+		console.info('App.createLoom');
+
+		$('body').addClass('createLoom');
+
+		// App.drawHeaders();
+		// App.createGrid();
+		App.createThread();
 	},
 	drawHeaders: function(){
-		console.info('drawHeaders');
+		console.info('App.drawHeaders');
 
-		$.each(axis, function(index){
+		$('.header').addClass('active');
 
-			var axis = this;
-			var axisIndex = index;
-			var header = $('<div>').addClass('header '+this);
-			var threads = ["one", "two", "three", "four"];
-			var buttons = $('<div>').addClass('buttons');
-
-			$('<div>').addClass('title').text(this).appendTo(header);
-
-			$.each(threads, function(index){
-				var thread = this;
-
-				$('<div>')
-					.addClass('link '+thread)
-					.text(this)
-					.appendTo(buttons)
-					.attr('data-column', (axisIndex == 0 ? index : null ))
-					.attr('data-row', (axisIndex == 0 ? null : (3-index) ))
-					.on('click', function(){
-						App.openHaiku(thread);
-					});
-
-				App.createThread(thread, axisIndex, index);
-			});
-
-			buttons.appendTo(header);
-
-			var h = -windowWidth/4+'px';
-			var t = -windowHeight/2+'px';
-
-			header.appendTo('body').css({
-				// height: index == 0 ? headerHeight : '100%',
-				// width: index == 0 ? '100%' : headerHeight
-				height: headerHeight,
-				width: index == 0 ? '100%' : windowHeight,
-				transform: (index == 0 ? '' : 'rotate(-90deg) translate('+h+', '+t+')')
-			});
+		$('.header .link').on('click', function(){
+			App.openHaiku();
 		});
 
-		var footer = $('<div>').addClass('header');
-
-		$('<button>')
-			.text('Play Sequence')
-			.appendTo(footer)
-			.on('click', function(){
-				// alert('amazing beautful things happen now...');
+		$(document).on('click', '.bottom button', function(){
+			console.info('bottom button click');
+			if ( $('.selected').length ) {
 				App.animateLoom();
-			});
-
-		footer.css({
-			bottom: 0,
-			top: (windowHeight-headerHeight),
-			height: headerHeight,
-			width: '100%'
-		}).appendTo('body');
-
+				
+			} else {
+				console.info('please choose a thread');
+			}
+		// $('.buttom button').on('click', function(){
+		});
 	},
-	createThread: function(thread, axis, index) {
+	createThread: function() {
 
-		var left = headerHeight + gutter + (threadWidth*index) + (gutter*index);
-		var top = headerHeight + gutter + (threadHeight*index) + (gutter*index);
+		$('.thread').each(function(index){
+			var row = $(this).data('row');
+			var column = $(this).data('column');
 
-		// console.info('thread: '+thread);
-		// console.info('axis: '+axis);
-		// console.info('index: '+index);
+			var isRow = row >= 0;
+			var isColumn = column >= 0;
 
-		var video = $('<video>')
-					.attr('autoplay', true)
-					.attr('muted', true)
-					.attr('loop', true)
-					.append('<source src="videos/video-'+((axis+index)+1)+'.mp4">')
+			var top = headerHeight + gutter + (threadHeight*row) + (gutter*row);
+			var left = headerHeight + gutter + (threadWidth*column) + (gutter*column);
+			var width = row > -1 ? '100%' : threadWidth;
+			var height = column > -1 ? '100%' : threadHeight;
 
-		$('<div>').addClass('thread '+thread).appendTo('body').css({
-			// backgroundColor: axis == 0 ? 'pink' : 'blue',
-			width: axis == 0 ? threadWidth : '100%',
-			height: axis == 0 ? '100%' : threadHeight,
-			left: axis == 0 ? left : 0,
-			top: axis == 0 ? 0 : top
-		})
-		.attr('data-column', (axis == 0 ? index : null ))
-		.attr('data-row', (axis == 0 ? null : index ))
-		.on('click touchstart', function(){
-			// $(this).toggleClass('selected')
-		})
-		.append(video);
+			var style = {};
+			style.left = isColumn ? -left : 0;
+			style.top = isColumn ? 0 : -top;
+			style.width = isColumn ? 0 : width;
+			style.height = isColumn ? height : 0;
+			style.opacity = 0;
+
+			// var myindex = row || column;
+
+			var myindex = isRow ? $('thread[data-row]').length - row : $('.thread[data-column]').length - column;
+
+			$(this).css(style).delay(500*myindex).animate({
+				opacity: 0.25,
+				top: isColumn ? 0 : top,
+				left: isColumn ? left : 0,
+				height: height,
+				width: width
+			}, 5000, 'swing', function(){
+				// console.in
+				console.info('index: '+index);
+				// console.info('$(".thread").length: '+$(".thread").length);
+
+				if (index == $(".thread").length-1 ) {
+					console.info('animation complete');
+
+					App.createGrid();
+					App.drawHeaders();
+
+				}
+			});
+			// .done(function(){
+			// 	console.info('animation complete');
+			// });
+			// console.info('index');
+		});
+
 	},
 	createGrid: function(){
-		var xthreads = [1,2,3,4];
-		$.each(xthreads, function(index){
-			var axisIndex = index;
-			var ythreads = [1,2,3,4];
-			$.each(ythreads, function(index){
-				// console.info('index: '+index);
-				// console.info('axisIndex: '+axisIndex);
+		console.info('App.createGrid');
+		$('.grid').each(function(index){
 
-				var top = headerHeight + gutter*(axisIndex + 1) + threadHeight*axisIndex - 1;
-				var left = headerHeight + gutter*(index + 1) + threadWidth*index - 1;
-				// var left = 0;
+			var row = $(this).data('row');
+			var column = $(this).data('column');
 
+			var top = headerHeight + gutter*(row + 1) + threadHeight*row - 1;
+			var left = headerHeight + gutter*(column + 1) + threadWidth*column - 1;
 
-				$('<div>').addClass('grid')
-				.css({
-					height: threadHeight,
-					width: threadWidth,
-					top: top,
-					left: left
-				})
-				.attr('data-column', index)
-				.attr('data-row', axisIndex)
-				.appendTo('body')
-				.hover(function(){
-					// console.info('mousein');
-					// highlight rows columns
-					$('[data-row="'+axisIndex+'"]').not('.grid').addClass('hover');
-					$('[data-column="'+index+'"]').not('.grid').addClass('hover');
-				}, function(){
-					// console.info('mouseout');
-					$('[data-row="'+axisIndex+'"]').not('.grid').removeClass('hover');
-					$('[data-column="'+index+'"]').not('.grid').removeClass('hover');
-					// high
-				})
-				.on('click touchstart', function(){
-					if ($(this).hasClass('selected')) {
-						//
-						$(this).removeClass('selected');
+			$(this).css({
+				height: threadHeight,
+				width: threadWidth,
+				top: top,
+				left: left
+			})
+			.hover(function(){
+				$('[data-row="'+row+'"]').not('.grid').addClass('hover')
+					.find('video').get(0).play();
+				$('[data-column="'+column+'"]').not('.grid').addClass('hover')
+					.find('video').get(0).play();
+			}, function(){
+				$('[data-row="'+row+'"]').not('.grid').removeClass('hover')
+					.find('video').not('.selected').get(0).pause();
+				$('[data-column="'+column+'"]').not('.grid').removeClass('hover')
+					.find('video').not('.selected').get(0).pause();
+			})
+			.on('click touchstart', function(event){
+				console.info('grid click');
+				event.stopPropagation();
 
-						$('[data-column="'+index+'"]').not('.grid').removeClass('selected');
-						$('[data-row="'+axisIndex+'"]').not('.grid').removeClass('selected');
-					} else {
+				if ($(this).hasClass('selected')) {
+					//
+					$(this).removeClass('selected');
 
-						$('.grid[data-column="'+index+'"]').removeClass('selected');
-						$('.grid[data-row="'+axisIndex+'"]').removeClass('selected');
+					$('[data-column="'+column+'"]').not('.grid').removeClass('selected')
+						.find('video').not('.selected').removeClass('selected').get(0).pause();
+					$('[data-row="'+row+'"]').not('.grid').removeClass('selected')
+						.find('video').not('.selected').removeClass('selected').get(0).pause();
+				} else {
 
-						$('[data-column="'+index+'"]').not('.grid').addClass('selected');
-						$('[data-row="'+axisIndex+'"]').not('.grid').addClass('selected');
+					$('.grid[data-column="'+column+'"]').removeClass('selected');
+					$('.grid[data-row="'+row+'"]').removeClass('selected');
 
-						$(this).addClass('selected');
-					}
-					App.activatePlayButton();
-				});
+					$('[data-column="'+column+'"]').not('.grid').addClass('selected')
+						// .find('video').addClass('selected').get(0).play();
+					$('[data-row="'+row+'"]').not('.grid').addClass('selected')
+						// .find('video').addClass('selected').get(0).play();
+
+					$(this).addClass('selected');
+				}
+				App.activatePlayButton();
 			});
-
 		});
 	},
 	activatePlayButton: function(){
+		console.info('App.activatePlayButton');
 		var selected = $('.grid.selected').length;
-		// console.info('selected: '+selected);
 
-		// if (selected >= 4) {
 		if (selected >= 0) {
 			$('button').addClass('active');
-			// console.info('active button');
 		} else {
 			$('button').removeClass('active');
-			// console.info('deactivate button');
 		}
 
 		// fix header highlights
@@ -192,30 +188,36 @@ var App = {
 			$('.link[data-row='+row+']').addClass('selected');
 		});
 
+
+
 	},
 	animateLoom: function(){
-		var rows = $('.thread[data-row], .grid.selected');
-		// var rows = $('.grid.selected');
-		var top = windowHeight - headerHeight - threadHeight - gutter;
-		rows.animate({
-			top: top,
-			opacity: 0
-		}, 1000, function(){
-			App.showVideo(sequence);
-		});
+		console.info('App.animateLoom');
+		$('body').addClass('animateLoom');
 
-		var sequence = $('.grid.selected');
+		$('.perceptual, .thread[data-row], .grid').animate({
+			top: windowHeight
+		}, 5000, 'swing', function(){
+			App.showVideo();
+		});
 	},
 	openHaiku: function(haiku){
-		// console.info('openHaiku '+haiku);
+		console.info('App.openHaiku');
 	},
 	showVideo: function(sequence){
+		console.info('App.showVideo');
 		// create an overlay
 		$('<div>')
 			.addClass('overlay')
 			.appendTo('body')
-			.hide()
-			.fadeIn(5000);
+			.css({
+				opacity: 0,
+				top: windowHeight
+			})
+			.animate({
+				opacity: 1,
+				top: 0
+			}, 5000);
 
 		var video = $('<video>')
 			.attr('autoplay', true)

@@ -1,0 +1,207 @@
+body, html {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+
+	background-color: #666;
+}
+body, button {
+		font-family: 'Helvetica Neue', Helvetica, sans-serif;
+}
+/*video {
+	display: none;
+}*/
+#intro {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: #000;
+	transition: all 5s;
+	opacity: 0;
+	height: 0;
+
+	&.active {
+		height: 100%;
+		opacity: 1;
+	}
+	&.leave {
+		height: 0;
+		opacity: 0;
+		bottom:0;
+	}
+	.inner {
+		padding: 4em;
+		color: #999;
+		text-align: center;
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
+
+@headerHeight: 80px;
+
+.header {
+	background: rgba(0,0,0,0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	text-align: center;
+	text-transform: uppercase;
+	z-index: 999;
+
+	opacity: 0;
+	transform: translateY(-100%);
+	transition: all 2s;
+	
+	width: 100%;
+	height: @headerHeight;
+	
+	&.active {
+		opacity: 1;
+		transform: translateY(0%);
+	}
+
+	&.conceptual {
+		// display: none;
+		width: 100vh;
+		transform-origin: 0 50%;
+		transform: rotate(-90deg) translate(-93%, -100%);
+
+		.createLoom & {
+			transform: rotate(-90deg) translate(-93%, 50%);
+		}
+	}
+	&.bottom {
+		bottom: 0;
+		top: auto;
+		transform: translateY(100%);
+
+		.createLoom & {
+			transform: translateY(0%);
+		}
+	}
+
+	.title {
+		font-weight: 100;
+		letter-spacing: .2em;
+		margin-top: 0.6em;
+		font-size: 1.5em;
+		color: rgba(255,255,255,0.25);
+	}
+
+	.buttons {
+		margin: 0 80px;
+	}
+
+	.link {
+		color: rgba(255,255,255,0.5);
+		font-size: 0.7em;
+		font-weight: 400;
+		letter-spacing: .2em;
+		cursor: pointer;
+		display: inline-block;
+		width: 24%;
+		padding: 1em 0;
+		transition: all 1s;
+	
+		&.hover,
+		&:hover {
+			color: white;
+		}
+		&.selected {
+			color: gold;
+		}
+	}
+}
+
+button {
+	border: 2px solid #fff;
+	padding: 1em;
+	text-transform: uppercase;
+	background: transparent;
+	color: #fff;
+	opacity: 0.5;
+	font-size: 0.8em;
+	letter-spacing: .3em;
+	font-weight: 500;
+	transition: all 0.5s;
+	margin-top: 1.25em;
+	outline: none;
+
+	&:hover, &:active {
+		border-color: #fff;
+		color: #fff;
+	}
+}
+.header button.active {
+	border-color: gold;
+	color: gold;
+	opacity: 1;
+	cursor: pointer;
+}
+.header button.active:hover {
+	color: #333;
+	background-color: gold;
+}
+
+
+
+.thread {
+	position: absolute;
+	background-color: rgba(0,0,0,1);
+	z-index: 9;
+	opacity: 0.25;
+	overflow: hidden;
+
+	// transform: translateY(-100%);
+	transition: all 5s;
+	
+	.createLoom & {
+		transform: translateY(0%);
+
+	}
+	&.selected,
+	&.hover {
+		opacity: 0.5 !important;
+	}
+	video {
+		position: absolute;
+		min-height: 100%;
+		min-width: 100%;
+		top: 0;
+		left: 0;
+	}
+}
+
+
+.grid {
+	cursor: pointer;
+	border: 2px solid transparent;
+	position: absolute;
+	z-index: 999;
+	transition: all 1s;
+
+	&:hover {
+		border-color: white;
+	}
+	&.selected {
+		border-color: gold;
+		box-shadow: 0 0 1em rgba(0,0,0,0.25);
+	}
+}
+
+.overlay {
+	position: absolute;
+	z-index: 99999;
+	background-color: #000;
+	height: 100%;
+	width: 100%;
+	
+	video {
+		min-height: 100%;
+		min-width: 100%;
+	}
+}

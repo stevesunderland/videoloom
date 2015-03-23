@@ -1,141 +1,181 @@
-body, html {
-	height: 100%;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-
-	background-color: #666;
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #666;
 }
-body, button {
-		font-family: 'Helvetica Neue', Helvetica, sans-serif;
+body,
+button {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
 /*video {
 	display: none;
 }*/
+#intro {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  transition: all 5s;
+  opacity: 0;
+  height: 0;
+}
+#intro.active {
+  height: 100%;
+  opacity: 1;
+}
+#intro.leave {
+  height: 0;
+  opacity: 0;
+  bottom: 0;
+}
+#intro .inner {
+  padding: 4em;
+  color: #999;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .header {
-	background: rgba(0,0,0,0.5);
-	position: absolute;
-	top: 0;
-	left: 0;
-	text-align: center;
-	text-transform: uppercase;
-	z-index: 999;
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  text-transform: uppercase;
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 2s;
+  width: 100%;
+  height: 80px;
 }
-
+.header.active {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.header.conceptual {
+  width: 100vh;
+  transform-origin: 0 50%;
+  transform: rotate(-90deg) translate(-93%, -100%);
+}
+.createLoom .header.conceptual {
+  transform: rotate(-90deg) translate(-93%, 50%);
+}
+.header.bottom {
+  bottom: 0;
+  top: auto;
+  transform: translateY(100%);
+}
+.createLoom .header.bottom {
+  transform: translateY(0%);
+}
 .header .title {
-	/*text-transform: uppercase;*/
-	font-weight: 100;
-	letter-spacing: .2em;
-	margin-top: 1em;
-	/*margin-bottom: 1em;*/
-	font-size: 1.5em;
-	/*font-size: light;*/
-	color: rgba(255,255,255,0.25);
+  font-weight: 100;
+  letter-spacing: .2em;
+  margin-top: 0.6em;
+  font-size: 1.5em;
+  color: rgba(255, 255, 255, 0.25);
 }
-
 .header .buttons {
-	margin: 0 80px;
+  margin: 0 80px;
 }
-
 .header .link {
-	color: rgba(255,255,255,0.5);
-	font-size: 0.7em;
-	font-weight: 400;
-	letter-spacing: .2em;
-	cursor: pointer;
-	display: inline-block;
-	width: 25%;
-	padding: 1em 0;
-	transition: all 1s;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.7em;
+  font-weight: 400;
+  letter-spacing: .2em;
+  cursor: pointer;
+  display: inline-block;
+  width: 24%;
+  padding: 1em 0;
+  transition: all 1s;
 }
 .header .link.hover,
 .header .link:hover {
-	/*background: blue;*/
-	color: white;
+  color: white;
 }
 .header .link.selected {
-	color: gold;
+  color: gold;
 }
-.header button {
-	border: 2px solid #fff;
-	padding: 1em;
-	text-transform: uppercase;
-	background: transparent;
-	color: #fff;
-	opacity: 0.5;
-	font-size: 0.8em;
-	letter-spacing: .3em;
-	font-weight: 500;
-	transition: all 0.5s;
-	margin-top: 1.25em;
-	/*cursor: */
+button {
+  border: 2px solid #fff;
+  padding: 1em;
+  text-transform: uppercase;
+  background: transparent;
+  color: #fff;
+  opacity: 0.5;
+  font-size: 0.8em;
+  letter-spacing: .3em;
+  font-weight: 500;
+  transition: all 0.5s;
+  margin-top: 1.25em;
+  outline: none;
+}
+button:hover,
+button:active {
+  border-color: #fff;
+  color: #fff;
 }
 .header button.active {
-	border-color: gold;
-	color: gold;
-	opacity: 1;
-	cursor: pointer;
+  border-color: gold;
+  color: gold;
+  opacity: 1;
+  cursor: pointer;
 }
 .header button.active:hover {
-	color: #333;
-	background-color: gold;
+  color: #333;
+  background-color: gold;
 }
-
-
-
 .thread {
-	position: absolute;
-	background-color: rgba(0,0,0,1);
-	z-index: 9;
-	opacity: 0.25;
-	transition: all 1s;
-	overflow: hidden;
+  position: absolute;
+  background-color: #000000;
+  z-index: 9;
+  opacity: 0.25;
+  overflow: hidden;
+  transition: all 5s;
+}
+.createLoom .thread {
+  transform: translateY(0%);
 }
 .thread.selected,
 .thread.hover {
-	opacity: 0.5;
+  opacity: 0.5 !important;
 }
 .thread video {
-	position: absolute;
-	min-height: 100%;
-	min-width: 100%;
-	top: 0;
-	left: 0;
+  position: absolute;
+  min-height: 100%;
+  min-width: 100%;
+  top: 0;
+  left: 0;
 }
-
-
-
-
-
-
 .grid {
-	cursor: pointer;
-	border: 2px solid transparent;
-	position: absolute;
-	z-index: 999;
-	transition: all 1s;
+  cursor: pointer;
+  border: 2px solid transparent;
+  position: absolute;
+  z-index: 999;
+  transition: all 1s;
 }
 .grid:hover {
-	border-color: white;
+  border-color: white;
 }
 .grid.selected {
-	border-color: gold;
-	box-shadow: 0 0 5em rgba(0,0,0,0.5);
+  border-color: gold;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
 }
-
-
-
-
-
 .overlay {
-	position: absolute;
-	z-index: 99999;
-	background-color: #000;
-	height: 100%;
-	width: 100%;
+  position: absolute;
+  z-index: 99999;
+  background-color: #000;
+  height: 100%;
+  width: 100%;
 }
 .overlay video {
-	min-height: 100%;
-	min-width: 100%;
+  min-height: 100%;
+  min-width: 100%;
 }
+/*# sourceMappingURL=app.css.map */

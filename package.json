@@ -1,0 +1,24 @@
+{
+  "name": "videoloom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stevesunderland/videoloom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stevesunderland/videoloom/issues"
+  },
+  "homepage": "https://github.com/stevesunderland/videoloom",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jade": "^0.14.1",
+    "grunt-contrib-watch": "^0.6.1"
+  }
+}
