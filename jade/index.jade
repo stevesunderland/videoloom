@@ -2,40 +2,36 @@ html
 	head
 		title VideoLoom
 		link(rel='stylesheet' href='app.css')
+		link(rel="icon" type="image/png" href="icon.png" sizes="192x192")
+		link(rel="apple-touch-icon" href="icon.png" sizes="180x180")
 	body
-		// loom
+		//- loom
 		each i, loomindex in loom
 			div.header(class=i.name)
 				.title #{i.name}
 				.buttons
 					each t, threadindex in i.threads
 						.link(class=t.name, data-column=(loomindex == 0 ? threadindex : null) data-row=(loomindex == 0 ? null : (i.threads.length - threadindex))) #{t.name}
-
 			each t, index in i.threads
 				div.thread(class=t.name, data-column=(loomindex == 0 ? index : null ), data-row=(loomindex == 0 ? null : index))
 					video(loop, muted)
 						source(src=t.video)
-
-		// grid
+		//- grid
 		- var xthreads = loom[0].threads
 		- var ythreads = loom[1].threads
 		each x, xindex in xthreads
 			each y, yindex in ythreads
 				.grid(data-column=xindex, data-row=yindex)
-
-		// footer
+		//- footer
 		.header.bottom
 			button Play Sequence
-
-		// intro modal
+		//- intro modal
 		div#intro
 			.inner
 				p #{intro.text}
 				button Begin Weaving
-
-		// video modal
+		//- video modal
 		div#video
-
-		// script
+		//- script
 		script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
 		script(src='app.js')

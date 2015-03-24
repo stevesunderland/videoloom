@@ -5,7 +5,7 @@ body, html {
 	padding: 0;
 	overflow: hidden;
 
-	background-color: #666;
+	background-color: #555;
 }
 body, button {
 		font-family: 'Helvetica Neue', Helvetica, sans-serif;
@@ -21,6 +21,7 @@ body, button {
 	transition: all 5s;
 	opacity: 0;
 	height: 0;
+	overflow: hidden;
 
 	&.active {
 		height: 100%;
@@ -38,6 +39,13 @@ body, button {
 		position: relative;
 		top: 50%;
 		transform: translateY(-50%);
+
+		p {
+			max-width: 42em;
+			font-size: 0.8em;
+			line-height: 1.5;
+			margin: 0 auto 1em;
+		}
 	}
 }
 
@@ -72,6 +80,15 @@ body, button {
 
 		.createLoom & {
 			transform: rotate(-90deg) translate(-93%, 50%);
+
+		}
+		.animateLoom & {
+			transform: rotate(-90deg) translate(-93%, -100%) !important;
+		}
+	}
+	&.perceptual {
+		.animateLoom & {
+			transform: translateY(100vh);
 		}
 	}
 	&.bottom {
@@ -81,6 +98,10 @@ body, button {
 
 		.createLoom & {
 			transform: translateY(0%);
+
+		}
+		.animateLoom & {
+			transform: translateY(100%) !important;
 		}
 	}
 
@@ -163,6 +184,13 @@ button {
 		transform: translateY(0%);
 
 	}
+	.animateLoom & {
+		transform: translateY(100vh) !important;
+	}
+	.animateLoom &[data-column] {
+		-webkit-animation-delay: 5s;
+		animation-delay: 5s;
+	}
 	&.selected,
 	&.hover {
 		opacity: 0.5 !important;
@@ -191,17 +219,40 @@ button {
 		border-color: gold;
 		box-shadow: 0 0 1em rgba(0,0,0,0.25);
 	}
+
+	.animateLoom & {
+		transform: translateY(100vh) !important;
+	}
 }
 
-.overlay {
-	position: absolute;
-	z-index: 99999;
-	background-color: #000;
+// .overlay {
+// 	position: absolute;
+// 	z-index: 99999;
+// 	background-color: #000;
+// 	height: 100%;
+// 	width: 100%;
+	
+// 	video {
+// 		min-height: 100%;
+// 		min-width: 100%;
+// 	}
+// }
+
+#video {
 	height: 100%;
 	width: 100%;
-	
-	video {
-		min-height: 100%;
-		min-width: 100%;
+	transition: all 5s;
+	transform: translateY(100vh);
+	background-color: #000;
+
+	iframe {
+		height: 100%;
+		width: 100%;
 	}
+
+	.animateLoom & {
+		transform: translateY(0);
+	}
+
+
 }

@@ -18,8 +18,6 @@ var App = {
 		console.info('App.loadVideos');
 
 		$('.thread video').each(function(index){
-			// console.info('loading video '+index);
-			// console.info('source: '+$(this).find('source').data('src'));
 			$(this).find('source').attr('src', $(this).find('source').data('src'));
 		});
 	},
@@ -45,17 +43,17 @@ var App = {
 	drawHeaders: function(){
 		console.info('App.drawHeaders');
 
-		$('.header').addClass('active');
-
-		$('.header .link').on('click', function(){
-			App.openHaiku();
-		});
+		$('.header')
+			.addClass('active')
+			.find('.link')
+			.on('click', function(){
+				App.openHaiku();
+			});
 
 		$(document).on('click', '.bottom button', function(){
 			console.info('bottom button click');
 			if ( $('.selected').length ) {
 				App.animateLoom();
-				
 			} else {
 				console.info('please choose a thread');
 			}
@@ -84,7 +82,6 @@ var App = {
 			style.opacity = 0;
 
 			// var myindex = row || column;
-
 			var myindex = isRow ? $('thread[data-row]').length - row : $('.thread[data-column]').length - column;
 
 			$(this).css(style).delay(500*myindex).animate({
@@ -94,24 +91,14 @@ var App = {
 				height: height,
 				width: width
 			}, 5000, 'swing', function(){
-				// console.in
-				console.info('index: '+index);
-				// console.info('$(".thread").length: '+$(".thread").length);
-
 				if (index == $(".thread").length-1 ) {
 					console.info('animation complete');
 
 					App.createGrid();
 					App.drawHeaders();
-
 				}
 			});
-			// .done(function(){
-			// 	console.info('animation complete');
-			// });
-			// console.info('index');
 		});
-
 	},
 	createGrid: function(){
 		console.info('App.createGrid');
@@ -145,7 +132,7 @@ var App = {
 				event.stopPropagation();
 
 				if ($(this).hasClass('selected')) {
-					//
+
 					$(this).removeClass('selected');
 
 					$('[data-column="'+column+'"]').not('.grid').removeClass('selected')
@@ -181,50 +168,43 @@ var App = {
 		// fix header highlights
 		$('.header .link').removeClass('selected');
 		$('.grid.selected').each(function(){
-			// console.info('got one');
 			var col = $(this).data('column');
 			var row = $(this).data('row');
 			$('.link[data-column='+col+']').addClass('selected');
 			$('.link[data-row='+row+']').addClass('selected');
 		});
-
-
-
 	},
 	animateLoom: function(){
 		console.info('App.animateLoom');
 		$('body').addClass('animateLoom');
 
-		$('.perceptual, .thread[data-row], .grid').animate({
-			top: windowHeight
-		}, 5000, 'swing', function(){
-			App.showVideo();
-		});
+		// var objects = $('.perceptual, .thread[data-row], .grid');
+		// var counter = 0;
+
+		// objects.animate({
+		// 	// top: windowHeight
+		// }, 5000, 'swing', function(){
+		// 	console.info('counter: '+counter);
+		// 	if (counter == 0) {
+			setTimeout(function(){
+				App.showVideo();
+			}, 5000);
+				// return false;
+			// }
+			// // console.info(response);
+			// counter++;
+		// });
 	},
 	openHaiku: function(haiku){
 		console.info('App.openHaiku');
 	},
 	showVideo: function(sequence){
 		console.info('App.showVideo');
-		// create an overlay
-		$('<div>')
-			.addClass('overlay')
-			.appendTo('body')
-			.css({
-				opacity: 0,
-				top: windowHeight
-			})
-			.animate({
-				opacity: 1,
-				top: 0
-			}, 5000);
 
-		var video = $('<video>')
-			.attr('autoplay', true)
-			.attr('loop', true)
-			.append('<source src="videos/video-2.mp4"></source>')
+		var overlay = $('#video');
+		var video = $('<iframe src="https://player.vimeo.com/video/120269753?autoplay=1&color=999&title=0&byline=0&portrait=0" width="500" height="281"></iframe>');
 
-		video.appendTo('.overlay');
+		video.appendTo(overlay);
 
 	}
 }
