@@ -13,7 +13,7 @@ html
 
 			each t, index in i.threads
 				div.thread(class=t.name, data-column=(loomindex == 0 ? index : null ), data-row=(loomindex == 0 ? null : index))
-					//- video(loop, muted)
+					video(loop, muted)
 						source(src=t.video)
 
 		// grid
