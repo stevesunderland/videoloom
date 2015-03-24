@@ -162,8 +162,7 @@ button:active {
   transform: translateY(100vh) !important;
 }
 .animateLoom .thread[data-column] {
-  -webkit-animation-delay: 5s;
-  animation-delay: 5s;
+  transition-delay: 2s;
 }
 .thread.selected,
 .thread.hover {
@@ -197,6 +196,7 @@ button:active {
   height: 100%;
   width: 100%;
   transition: all 5s;
+  transition-delay: 2s;
   transform: translateY(100vh);
   background-color: #000;
 }
