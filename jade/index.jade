@@ -8,7 +8,7 @@ html
 		//- loom
 		each i, loomindex in loom
 			div.header(class=i.name)
-				.title #{i.name}
+				.title &nbsp;
 				.buttons
 					each t, threadindex in i.threads
 						.link(class=t.name, data-column=(loomindex == 0 ? threadindex : null) data-row=(loomindex == 0 ? null : (i.threads.length - threadindex))) #{t.name}
