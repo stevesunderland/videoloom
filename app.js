@@ -7,12 +7,62 @@ var windowWidth = $(window).width();
 var threadWidth = (windowWidth - headerHeight*2 - gutter)/4 - gutter;
 var threadHeight = (windowHeight - headerHeight*2 - gutter)/4 - gutter;
 
+var _videos = [];
+
 var App = {
 	init: function(){
 		console.info('App.init');
 		App.showIntro();
 		// App.loadVideos();
 		// App.createLoom();
+
+		$.each( $('.grid'), function(){
+			var row = $(this).data('row');
+			var column = $(this).data('column');
+			var combined = (row+(column*4));
+
+			$(this).data('verse', combined);
+		});
+		App.getVideos();
+		App.loadClips();
+	},
+	loadClips: function(){
+		var clips = [1,2,3,4,5,6,7,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25];
+		shuffle(clips);
+		clips = clips.slice(0,8);
+		console.info('clips: ');
+		console.info(clips);
+
+		$('.thread').each(function(index){
+			$(this).find('video').append('<source src="videos/clip-'+clips[index]+'.mp4" type="video/mp4"></source>')
+		});
+
+		function shuffle(array) {
+		  var currentIndex = array.length, temporaryValue, randomIndex ;
+
+		  // While there remain elements to shuffle...
+		  while (0 !== currentIndex) {
+
+		    // Pick a remaining element...
+		    randomIndex = Math.floor(Math.random() * currentIndex);
+		    currentIndex -= 1;
+
+		    // And swap it with the current element.
+		    temporaryValue = array[currentIndex];
+		    array[currentIndex] = array[randomIndex];
+		    array[randomIndex] = temporaryValue;
+		  }
+
+		  return array;
+		}
+	},
+	getVideos: function(){
+		console.info('app.getVideos');
+		$.getJSON('data.json', function(json){
+			$(json.videos).each(function(){
+				_videos.push(this.id);
+			});
+		});
 	},
 	loadVideos: function(){
 		console.info('App.loadVideos');
@@ -131,6 +181,10 @@ var App = {
 				console.info('grid click');
 				event.stopPropagation();
 
+				if ( $(this).hasClass('disabled') ) {
+					return false;
+				}
+
 				if ($(this).hasClass('selected')) {
 
 					$(this).removeClass('selected');
@@ -178,33 +232,94 @@ var App = {
 		console.info('App.animateLoom');
 		$('body').addClass('animateLoom');
 
-		// var objects = $('.perceptual, .thread[data-row], .grid');
-		// var counter = 0;
+		App.playSequence();
 
-		// objects.animate({
-		// 	// top: windowHeight
-		// }, 5000, 'swing', function(){
-		// 	console.info('counter: '+counter);
-		// 	if (counter == 0) {
-			setTimeout(function(){
-				App.showVideo();
-			}, 5000);
-				// return false;
-			// }
-			// // console.info(response);
-			// counter++;
-		// });
 	},
 	openHaiku: function(haiku){
 		console.info('App.openHaiku');
 	},
-	showVideo: function(sequence){
-		console.info('App.showVideo');
+	getSequence: function(){
+		console.info('App.getSequence');
+		var sequence = [];
+		var selected = $('.grid.selected');
+
+		$.each(selected, function(item){
+			$(this).removeClass('selected').addClass('disabled');
+
+			var verse = $(this).data('verse');
+			var video = _videos[verse];
+
+			sequence.push(video);
+		});
+		return sequence;
+	},
+	playSequence: function(sequence){
+		console.info('App.playSequence');
+
+		var sequence = App.getSequence();
+		console.info('sequence: '+sequence);
+		console.info('sequence.length: '+sequence.length);
+
+		//play the first video in the sequence
+		var videocounter = 0;
 
 		var overlay = $('#video');
-		var video = $('<iframe src="https://player.vimeo.com/video/120269753?autoplay=1&color=999&title=0&byline=0&portrait=0" width="500" height="281"></iframe>');
+		
+		initVideo();
 
-		video.appendTo(overlay);
+
+
+
+
+		function initVideo(vimeoid) {
+			$('#videoframe').fadeOut('slow', function(){
+				$(this).remove();
+			});
+
+			var video = $('<iframe src="https://player.vimeo.com/video/'+sequence[videocounter]+'?autoplay=1&color=999&title=0&byline=0&portrait=0&api=1&player_id=videoframe" width="500" height="281" id="videoframe"></iframe>');
+			
+			video.appendTo(overlay);
+			overlay.fadeIn();
+
+			var player = Froogaloop( $('#videoframe')[0] );
+
+			player.addEvent('ready', function(){
+				console.info('ready');
+				player.addEvent('finish', onFinish);
+			});
+		}
+
+		//     console.info('player');
+		//     console.info(player);
+
+		// player.addEvent('ready', function() {
+	 //    });
+
+		function onFinish(id) {
+		    // alert('video has ended');
+		    console.log('video has ended');
+
+		    videocounter++;
+
+		    if (videocounter < sequence.length) {
+		    	// get next video
+		    	overlay.fadeOut('slow', function(){
+		    		initVideo();
+		    	})
+
+		    } else {
+		    	console.info('return to loom');
+		    	$('#video').fadeOut('slow', function(){
+		    		$('#videoframe').remove();
+		    		$('body').removeClass('animateLoom');
+
+		    		// $('.grid.selected').removeClass('s')
+
+		    	});
+		    }
+
+		    // $('#vimeoembed').addClass('finished');
+		}
 
 	}
 }

@@ -1,5 +1,13 @@
 module.exports = function(grunt) {
     grunt.initConfig({
+      // connect: {
+      //   server: {
+      //     options: {
+      //       port: 9001,
+      //       base: 'static'
+      //     }
+      //   }
+      // },
       jade: {
         compile: {
           options: {
@@ -22,17 +30,12 @@ module.exports = function(grunt) {
           }
         },
       },
-      // autoprefixer: {
-      //   no_dest: {
-      //     src: 'static/css/site.css'
-      //   },
-      // },
       watch: {
         all: {
           options:{
             livereload: true
           },
-          files: ['jade/*.jade', 'jade/**/*.jade', 'less/*.less'],
+          files: ['jade/*.jade', 'jade/**/*.jade', 'less/*.less', 'app.js'],
           // tasks: ['jade', 'less', 'autoprefixer']
           tasks: ['jade', 'less']
         }
@@ -40,9 +43,10 @@ module.exports = function(grunt) {
     });
 
     // grunt.loadNpmTasks("grunt-autoprefixer");
+    // grunt.loadNpmTasks("grunt-contrib-connect");
     grunt.loadNpmTasks("grunt-contrib-jade");
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks("grunt-contrib-watch");
 
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', ['watch', 'connect']);
 };

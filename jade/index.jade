@@ -15,7 +15,7 @@ html
 			each t, index in i.threads
 				div.thread(class=t.name, data-column=(loomindex == 0 ? index : null ), data-row=(loomindex == 0 ? null : index))
 					video(loop, muted)
-						source(src=t.video)
+						//- source(src=t.clip)
 		//- grid
 		- var xthreads = loom[0].threads
 		- var ythreads = loom[1].threads
@@ -34,4 +34,5 @@ html
 		div#video
 		//- script
 		script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+		script(src='//f.vimeocdn.com/js/froogaloop2.min.js')
 		script(src='app.js')

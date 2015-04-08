@@ -16,6 +16,7 @@ button {
 }*/
 #intro {
   position: absolute;
+  z-index: 9999;
   height: 100%;
   width: 100%;
   background-color: #000;
@@ -189,22 +190,28 @@ button:active {
   border-color: gold;
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
 }
+.grid.disabled {
+  border-color: rgba(128, 128, 128, 0.5);
+  cursor: default;
+}
 .animateLoom .grid {
   transform: translateY(100vh) !important;
 }
 #video {
+  position: relative;
+  z-index: 0;
   height: 100%;
   width: 100%;
   transition: all 5s;
   transition-delay: 2s;
-  transform: translateY(100vh);
   background-color: #000;
+  opacity: 0;
 }
 #video iframe {
   height: 100%;
   width: 100%;
 }
 .animateLoom #video {
-  transform: translateY(0);
+  opacity: 1;
 }
 /*# sourceMappingURL=app.css.map */
