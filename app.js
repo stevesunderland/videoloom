@@ -30,8 +30,6 @@ var App = {
 		var clips = [1,2,3,4,5,6,7,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25];
 		shuffle(clips);
 		clips = clips.slice(0,8);
-		console.info('clips: ');
-		console.info(clips);
 
 		$('.thread').each(function(index){
 			$(this).find('video').append('<source src="videos/clip-'+clips[index]+'.mp4" type="video/mp4"></source>')
@@ -39,20 +37,13 @@ var App = {
 
 		function shuffle(array) {
 		  var currentIndex = array.length, temporaryValue, randomIndex ;
-
-		  // While there remain elements to shuffle...
 		  while (0 !== currentIndex) {
-
-		    // Pick a remaining element...
 		    randomIndex = Math.floor(Math.random() * currentIndex);
 		    currentIndex -= 1;
-
-		    // And swap it with the current element.
 		    temporaryValue = array[currentIndex];
 		    array[currentIndex] = array[randomIndex];
 		    array[randomIndex] = temporaryValue;
 		  }
-
 		  return array;
 		}
 	},
@@ -178,7 +169,7 @@ var App = {
 					.find('video').not('.selected').get(0).pause();
 			})
 			.on('click touchstart', function(event){
-				console.info('grid click');
+
 				event.stopPropagation();
 
 				if ( $(this).hasClass('disabled') ) {
@@ -257,19 +248,10 @@ var App = {
 		console.info('App.playSequence');
 
 		var sequence = App.getSequence();
-		console.info('sequence: '+sequence);
-		console.info('sequence.length: '+sequence.length);
-
-		//play the first video in the sequence
 		var videocounter = 0;
-
 		var overlay = $('#video');
 		
 		initVideo();
-
-
-
-
 
 		function initVideo(vimeoid) {
 			$('#videoframe').fadeOut('slow', function(){
@@ -284,43 +266,28 @@ var App = {
 			var player = Froogaloop( $('#videoframe')[0] );
 
 			player.addEvent('ready', function(){
-				console.info('ready');
+				console.info('player.ready');
 				player.addEvent('finish', onFinish);
 			});
 		}
 
-		//     console.info('player');
-		//     console.info(player);
-
-		// player.addEvent('ready', function() {
-	 //    });
-
 		function onFinish(id) {
-		    // alert('video has ended');
-		    console.log('video has ended');
+		    console.log('player.finish');
 
 		    videocounter++;
 
 		    if (videocounter < sequence.length) {
-		    	// get next video
 		    	overlay.fadeOut('slow', function(){
 		    		initVideo();
-		    	})
-
+		    	});
 		    } else {
 		    	console.info('return to loom');
 		    	$('#video').fadeOut('slow', function(){
 		    		$('#videoframe').remove();
 		    		$('body').removeClass('animateLoom');
-
-		    		// $('.grid.selected').removeClass('s')
-
 		    	});
 		    }
-
-		    // $('#vimeoembed').addClass('finished');
 		}
-
 	}
 }
 
