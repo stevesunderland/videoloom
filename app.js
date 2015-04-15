@@ -32,7 +32,7 @@ var App = {
 		clips = clips.slice(0,8);
 
 		$('.thread').each(function(index){
-			$(this).find('video').append('<source src="videos/clip-'+clips[index]+'.mp4" type="video/mp4"></source>')
+			$(this).find('video').append('<source src="videos/clip-'+clips[index]+'.mp4" type="video/mp4" loop="loop" autoplay="autoplay" playbackRate="0.5"></source>')
 		});
 
 		function shuffle(array) {
@@ -159,14 +159,14 @@ var App = {
 			})
 			.hover(function(){
 				$('[data-row="'+row+'"]').not('.grid').addClass('hover')
-					.find('video').get(0).play();
+					.find('video').get(0).play().playbackRate = 1;
 				$('[data-column="'+column+'"]').not('.grid').addClass('hover')
-					.find('video').get(0).play();
+					.find('video').get(0).play().playbackRate = 1;
 			}, function(){
 				$('[data-row="'+row+'"]').not('.grid').removeClass('hover')
-					.find('video').not('.selected').get(0).pause();
+					.find('video').not('.selected').get(0).playbackRate = 0.5;
 				$('[data-column="'+column+'"]').not('.grid').removeClass('hover')
-					.find('video').not('.selected').get(0).pause();
+					.find('video').not('.selected').get(0).playbackRate = 0.5;
 			})
 			.on('click touchstart', function(event){
 
@@ -181,18 +181,18 @@ var App = {
 					$(this).removeClass('selected');
 
 					$('[data-column="'+column+'"]').not('.grid').removeClass('selected')
-						.find('video').not('.selected').removeClass('selected').get(0).pause();
+						.find('video').not('.selected').removeClass('selected').get(0).playbackRate = 0.5;
 					$('[data-row="'+row+'"]').not('.grid').removeClass('selected')
-						.find('video').not('.selected').removeClass('selected').get(0).pause();
+						.find('video').not('.selected').removeClass('selected').get(0).playbackRate = 0.5;
 				} else {
 
 					$('.grid[data-column="'+column+'"]').removeClass('selected');
 					$('.grid[data-row="'+row+'"]').removeClass('selected');
 
 					$('[data-column="'+column+'"]').not('.grid').addClass('selected')
-						// .find('video').addClass('selected').get(0).play();
+						.find('video').addClass('selected').get(0).playbackRate = 1;
 					$('[data-row="'+row+'"]').not('.grid').addClass('selected')
-						// .find('video').addClass('selected').get(0).play();
+						.find('video').addClass('selected').get(0).playbackRate = 1;
 
 					$(this).addClass('selected');
 				}
@@ -253,28 +253,39 @@ var App = {
 		
 		initVideo();
 
+		console.info('sequence: '+sequence);
+
 		function initVideo(vimeoid) {
-			$('#videoframe').fadeOut('slow', function(){
-				$(this).remove();
+
+			console.info('initVideo');
+
+			$('#video').fadeOut('slow', function(){
+				$('#video>iframe').remove();
+	
+				var video = $('<iframe src="https://player.vimeo.com/video/'+sequence[videocounter]+'?autoplay=1&color=999&title=0&byline=0&portrait=0&api=1&player_id=videoframe'+videocounter+'" width="500" height="281" id="videoframe'+videocounter+'"></iframe>');
+				console.log(video);
+
+				video.appendTo(overlay);
+				overlay.fadeIn();
+
+				var player = new Froogaloop( $('#videoframe'+videocounter)[0] );
+				console.info('player: '+player);
+
+				player.addEvent('ready', function(){
+					console.info('player.ready');
+					player.addEvent('finish', onFinish);
+				});
 			});
 
-			var video = $('<iframe src="https://player.vimeo.com/video/'+sequence[videocounter]+'?autoplay=1&color=999&title=0&byline=0&portrait=0&api=1&player_id=videoframe" width="500" height="281" id="videoframe"></iframe>');
-			
-			video.appendTo(overlay);
-			overlay.fadeIn();
-
-			var player = Froogaloop( $('#videoframe')[0] );
-
-			player.addEvent('ready', function(){
-				console.info('player.ready');
-				player.addEvent('finish', onFinish);
-			});
 		}
 
 		function onFinish(id) {
 		    console.log('player.finish');
 
 		    videocounter++;
+
+		    console.info('videocounter: '+videocounter);
+		    console.info('sequence.length: ' + sequence.length);
 
 		    if (videocounter < sequence.length) {
 		    	overlay.fadeOut('slow', function(){

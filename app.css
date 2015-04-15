@@ -193,6 +193,7 @@ button:active {
 .grid.disabled {
   border-color: rgba(128, 128, 128, 0.5);
   cursor: default;
+  background: rgba(128, 128, 128, 0.5);
 }
 .animateLoom .grid {
   transform: translateY(100vh) !important;
