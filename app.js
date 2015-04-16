@@ -208,7 +208,7 @@ var App = {
 			var myindex = isRow ? $('thread[data-row]').length - row : $('.thread[data-column]').length - column;
 
 			$(this).css(style).delay(500*myindex).animate({
-				opacity: 0.25,
+				opacity: 0.5,
 				top: isColumn ? 0 : top,
 				left: isColumn ? left : 0,
 				height: height,
