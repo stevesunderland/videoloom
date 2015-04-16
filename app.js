@@ -94,7 +94,7 @@ var App = {
 
 				 	if ( counter == slides.length-1 ) {
 				 		$('#intro button').fadeOut(1000, function(){
-				 			$(this).appendTo($(el)).text('Begin Weaving').fadeIn(1000);
+				 			$(this).appendTo($(el)).hide().text('Begin Weaving').fadeIn(1000);
 				 		});
 				 		return false;
 				 	}
