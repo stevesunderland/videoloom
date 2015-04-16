@@ -1,3 +1,5 @@
+@gutter: 18px;
+
 body, html {
 	height: 100%;
 	width: 100%;
@@ -5,7 +7,7 @@ body, html {
 	padding: 0;
 	overflow: hidden;
 
-	background-color: #555;
+	background-color: #333;
 }
 body, button {
 		font-family: 'Helvetica Neue', Helvetica, sans-serif;
@@ -13,6 +15,108 @@ body, button {
 /*video {
 	display: none;
 }*/
+.logo {
+	position: absolute;
+	z-index: 999999;
+	height: 2em;
+	width: 2em;
+	left: 1.4em;
+	top: 1.4em;
+	opacity: 0.5;
+	transition: all 0.5s;
+	cursor: crosshair;
+
+	&:hover {
+		opacity: 1;
+		
+		.bar {
+
+
+			// &:before {
+			// 	top: 0;
+			// 	left: 0;
+			// }
+
+			&:nth-child(1) {
+				left: 1.5em;
+
+				&:before {
+					top: 1.5em;
+					left: -1.5em;
+				}
+			}
+			&:nth-child(2) {
+				left: 1em;
+
+				&:before {
+					top: 1em;
+					left: -1em;
+				}
+			}
+			&:nth-child(3) {
+				left: 0.5em;
+
+				&:before {
+					top: 0.5em;
+					left: -0.5em;
+				}
+			}
+		}
+
+	}
+
+	.showIntro & {
+		opacity: 0;
+	}
+
+	.bar {
+		position: absolute;
+		left: 0; top: 0;
+		right: 0; left: 0;
+		height: 100%;
+		border-left: 2px solid #fff;
+		margin-left: -1px;
+
+		transition: all 1s;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 2em;
+			border-top: 2px solid #fff;
+			margin-top: -1px;
+			margin-left: -1px;
+			transition: all 1s;
+		}
+
+		&:nth-child(1) {
+			left: 0.5em;
+
+			&:before {
+				top: 0.5em;
+				left: -0.5em;
+			}
+		}
+		&:nth-child(2) {
+			left: 1em;
+
+			&:before {
+				top: 1em;
+				left: -1em;
+			}
+		}
+		&:nth-child(3) {
+			left: 1.5em;
+
+			&:before {
+				top: 1.5em;
+				left: -1.5em;
+			}
+		}
+	}
+}
 #intro {
 	position: absolute;
 	z-index: 9999;
@@ -23,7 +127,7 @@ body, button {
 	opacity: 0;
 	height: 0;
 	overflow: hidden;
-	color: #fff;
+	color: #eee;
 
 	&.active {
 		height: 100%;
@@ -41,13 +145,9 @@ body, button {
 		position: relative;
 		top: 50%;
 		transform: translateY(-50%);
-
 		max-width: 42em;
 		margin: 0 auto;
-
 		display: none;
-
-		// transition: all 0.5s;
 		
 		&:nth-child(1) {
 			display: block;
@@ -55,8 +155,8 @@ body, button {
 	}
 	p, ul {
 		// max-width: 42em;
-		font-size: 0.8em;
-		line-height: 1.5;
+		font-size: 0.9em;
+		line-height: 1.75;
 		// margin: 0 auto 1em;
 	}
 	li {
@@ -120,9 +220,16 @@ body, button {
 		.animateLoom & {
 			transform: rotate(-90deg) translate(-93%, -100%) !important;
 		}
+		.openHaiku & {
+			opacity: 0;
+			// transform: translateX(100vh);
+		}
 	}
 	&.perceptual {
 		.animateLoom & {
+			transform: translateY(100vh);
+		}
+		.openHaiku & {
 			transform: translateY(100vh);
 		}
 	}
@@ -136,6 +243,9 @@ body, button {
 
 		}
 		.animateLoom & {
+			transform: translateY(100%) !important;
+		}
+		.openHaiku & {
 			transform: translateY(100%) !important;
 		}
 	}
@@ -169,6 +279,10 @@ body, button {
 		}
 		&.selected {
 			color: gold;
+
+			&:hover {
+				color: white;
+			}
 		}
 	}
 }
@@ -206,7 +320,8 @@ button {
 	position: absolute;
 	background-color: rgba(0,0,0,1);
 	z-index: 9;
-	opacity: 0.25;
+	// opacity: 0.25;
+	opacity: 0.5;
 	overflow: hidden;
 
 	// transform: translateY(-100%);
@@ -232,11 +347,23 @@ button {
 		transform: translateY(0%);
 
 	}
+	.openHaiku &,
 	.animateLoom & {
 		transform: translateY(100vh) !important;
 	}
-	.animateLoom &[data-column] {
-		transition-delay: 2s;
+	&[data-column] {
+		&:nth-child(3) {
+			transition-delay: 0.5s;
+		}
+		&:nth-child(4) {
+			transition-delay: 1s;
+		}
+		&:nth-child(5) {
+			transition-delay: 1.5s;
+		}
+		&:nth-child(6) {
+			transition-delay: 2s;
+		}
 	}
 	&.selected,
 	&.hover {
@@ -258,6 +385,7 @@ button {
 	position: absolute;
 	z-index: 999;
 	transition: all 1s;
+	opacity: 1;
 
 	&:hover {
 		border-color: white;
@@ -267,13 +395,15 @@ button {
 		box-shadow: 0 0 1em rgba(0,0,0,0.25);
 	}
 	&.disabled {
-		border-color: fade(gray, 50%);
+		border-color: fade(black, 50%);
 		cursor: default;
 		background: fade(black, 50%);
 	}
-
+	
+	.openHaiku &,
 	.animateLoom & {
 		transform: translateY(100vh) !important;
+		opacity: 0;
 	}
 }
 
@@ -289,6 +419,144 @@ button {
 // 		min-width: 100%;
 // 	}
 // }
+
+.haiku {
+	background-color: #000;
+	position: absolute;
+	top: 0; left: 0;
+	bottom: 0; right: 0;
+	opacity: 0;
+	// height: 100vh;
+	transition: all 5s;
+	// width: 100%;
+	// height: 100vh;
+
+	&.active {
+		opacity: 1;
+
+		.title {
+			transform: translateY(0);
+		}
+	}
+
+	.title {
+		position: absolute;
+		top: 0; left: 0; right: 0;
+		padding: 1em;
+		font-size: 1.5em;
+		font-weight: lighter;
+		letter-spacing: .2em;
+		text-transform: uppercase;
+		color: gold;
+		text-align: center;
+		z-index: 999;
+		background-color: fade(black, 90%);
+		
+		transition: all 5s;
+		transition-delay: 1s;
+
+		transform: translateY(100vh);
+
+	}
+
+	.slide {
+		position: absolute;
+		top: 0; left: 0;
+		bottom: 0; right: 0;
+
+		opacity: 0;
+
+		transition: all 5s;
+
+		&.active {
+			opacity: 1;
+
+			.panel {
+				&.sidebar {
+					transform: translateX(0);
+					opacity: 1;
+				}
+
+				&.image {
+					transform: translateX(0);
+					opacity: 1;
+				}
+
+				&.text {
+					transform: translateY(0);
+					opacity: 1;
+				}
+			}
+		}
+
+		.panel {
+			position: absolute;
+			top: 0; left: 0;
+			bottom: 0; right: 0;
+			background-size: cover;
+			background-repeat: no-repeat;
+			transition: all 5s;
+
+			&.sidebar {
+				right: auto;
+				width: 200px;
+			
+				transform: translateX(100vw);
+
+				opacity: 0;
+
+				z-index: 99;
+
+			}
+
+			&.image {
+				left: calc(200px + @gutter);
+
+				transform: translateX(-100vw);
+
+				transition-delay: 0.5s;
+
+				opacity: 0;
+
+				z-index: 9;
+				
+
+			}
+
+			&.text {
+				top: auto;
+				bottom: 200px;
+				background: fade(black, 90%);
+				// background: black;
+				color: #eee;
+				padding: 4em;
+				padding-left: calc(300px);
+
+				transform: translateY(-100vh);
+
+				transition-delay: 2s;
+
+				opacity: 0;
+
+				z-index: 999;
+
+
+
+				p {
+					white-space: pre;
+					line-height: 2;
+				}
+
+				h6 {
+					font-weight: normal;
+					font-size: 1em;
+					color: #999
+				}
+			}
+		}
+	}
+}
+
 
 #video {
 	position: relative;
@@ -311,5 +579,41 @@ button {
 		// transform: translateY(0);
 	}
 
+
+}
+
+#bio {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	
+	background-color: gold;
+
+	// display: none;
+	opacity: 0;
+
+	transition: all 5s;
+	z-index: 999;
+
+	top: 100vh;
+
+	.showBio & {
+		top: 0;
+		display: block;
+		opacity: 1;
+	}
+
+	.inner {
+		position: absolute;
+		top: 50%;
+		width: 100%;
+		transform: translateY(-50%);
+		color: #fff;
+		text-transform: uppercase;
+		letter-spacing: .2em;
+		text-align: center;
+	}
 
 }

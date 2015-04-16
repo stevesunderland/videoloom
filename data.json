@@ -5,19 +5,75 @@
       "threads": [
         {
         	"name": "underground",
-        	"clip": "videos/clip-1.mp4"
+        	"clip": "videos/clip-1.mp4",
+          "haiku": [
+            {
+              "text": "We are seeing that an economy based on the exploitation of natural resources\nis like extracting the bones and blood of human beings or looting the scalp, which is irreplaceable.",
+              "caption": " - Luis Delgado, community organizer"
+            },
+            {
+              "text": "We are well aware the Mother Earth is another living being like us.",
+              "caption": "- Sandra Delgado, community organizer"
+            },
+            {
+              "text": "By using a variety of native plants to build, clean and retain the soil\nwe have seen that ecological restoration can be accomplished in as little as 10 years.",
+              "caption": " - Dr. Percy Nunez, Andean biologist"
+            }
+          ]
         },
         {
         	"name": "biodiversity",
-        	"clip": "videos/clip-6.mp4"
+        	"clip": "videos/clip-6.mp4",
+          "haiku": [
+            {
+              "text": "We used to have 400 different species of trees in the valley of Cusco,\nmany parts of the Andes were evergreen, but now we only have a few dozen tree species left.",
+              "caption": "- Dr. Percy Nunez, Andean biologist"
+            },
+            {
+              "text": "From the moment I took my first steps in life,\nI realized I had to pass on the culture of my ancestors. I have tried to\nevoke the concept of respecting all biodiversity which is so paramount in the high Andes.",
+              "caption": "- Luis Delgado, community organizer"
+            },
+            {
+              "text": "We have been teaching at schools with biologists,\nteaching children how to take care of the lakes, plants, and animals.\nWe have little support so it is difficult, but the children are starting to teach their elders at home.",
+              "caption": "- Sandra Delgado, community organizer"
+            }
+          ]
         },
         {
         	"name": "human",
-        	"clip":"videos/clip-4.mp4"
+        	"clip":"videos/clip-4.mp4",
+          "haiku": [
+            {
+              "text": "Young people go to Lima. Why this migration? They leave due to lack of opportunities.\nOne of the reasons is the lack of water. Now we can’t have big farming areas and even cattle is greatly reduced.",
+              "caption": "-Ferrero Jimenez de la Rosa, President of Huamantanga"
+            },
+            {
+              "text": "Humans think money is everything. We know this is not right.\nWhen the earth gives no more, and you can’t plant anything, are they going to eat their money?",
+              "caption": "- Sandra Delgado, community organizer"
+            },
+            {
+              "text": "Many people believe that development only comes from economic gain.\nThis thinking causes irreversible damage because it is wrong, you cannot buy nature.\nOur consciousness has to evolve, it is on this type of development that humanity depends.",
+              "caption": "- Luis Delgado, community organizer"
+            }
+          ]
         },
         {
         	"name": "landscape",
-        	"clip": "videos/clip-2.mp4"
+        	"clip": "videos/clip-2.mp4",
+          "haiku": [
+            {
+              "text": "Forests have been pillaged.\nThe mountains are losing their perennial snow.\nIn 20 years we will have conflicts over the water.",
+              "caption": " - Sandra Delgado, community organizer"
+            },
+            {
+              "text": "That’s why we are planting trees,\nto take care of the lakes,\nbut we are too few doing this.",
+              "caption": " - Sandra Delgado, community organizer"
+            },
+            {
+              "text": "We need to work, we need to become conscious,\nwe need to transmit the knowledge of our ancestors\nand all the people that are interested can help me with this purpose.",
+              "caption": " - Luis Delgado, community organizer"
+            }
+          ]
        }
       ]
     },
@@ -26,19 +82,75 @@
       "threads": [
         {
         	"name": "adaptability",
-        	"clip": "videos/clip-5.mp4"
+        	"clip": "videos/clip-5.mp4",
+          "haiku": [
+            {
+              "text": "I will tell you about my community. From 1960 to 1980, there was too\nmuch winter and plenty of water, then from1990 on we had a drought that\nlasted for 3 years. After that, the winters left and they never were the same again.",
+              "caption": " - Ferrero Jimenez de la Rosa, President of Huamantanga"
+            },
+            {
+              "text": "If these problems don’t get sorted, this will soon be a ghost town.",
+              "caption": " - Ferrero Jimenez de la Rosa, President of Huamantanga"
+            },
+            {
+              "text": "The ancient ones were the first astrologers and geologists,\nthe first farmers and technicians, and they left us a whole irrigation system\nbuilt with infiltration channels. There was a culture of tribute to water, that we have to recover.",
+              "caption": " - Speaker, canal revitalization ceremony"
+            }
+          ]
         },
         {
         	"name": "embodiment",
-        	"clip": "videos/clip-7.mp4"
+        	"clip": "videos/clip-7.mp4",
+          "haiku": [
+            {
+              "text": "Then plastic technology and plastic culture came overnight.\nNowadays, everything that we buy is in a plastic bag and the water is being poisoned with trash.",
+              "caption": " - Luis Delgado, community organizer"
+            },
+            {
+              "text": "At the Circuit of the Four Lakes we have done an environmental\ntreatment, but this is like a small point on your body and we are talking about the earth.",
+              "caption": " - Luis Delgado, community organizer"
+            },
+            {
+              "text": "We do this work because we like to reward our Mother Earth because she\nfeeds us and she nourishes all human beings. We are very few, but we do it with great heart.",
+              "caption": " - Sandra Delgado, community organizer"
+            }
+          ]
         },
         {
-        	"name": "assemblage",
-        	"clip": "videos/clip-3.mp4"
+        	"name": "assembledge",
+        	"clip": "videos/clip-3.mp4",
+          "haiku": [
+            {
+              "text": "500 years ago we Incans had a strong clash, a cultural clash.\nOur indigenous culture almost vanished completely. Since then we\nhave been overshadowed by becoming more and more indifferent to nature.",
+              "caption": " - Luis Delgado, community organizer"
+            },
+            {
+              "text": "Traditional knowledge is, for example,\nthe ceremony for mother earth. It’s a small compensation that is done twice a year.",
+              "caption": "- Sandra Delgado, community organizer"
+            },
+            {
+              "text": "The indigenous cultures of the Americas, from Alaska to Patagonia, are cultures\nthat respect their circular area, their biodiversity. It shows that we still have certain understanding\nof nature to this day. We are trying to protect and restore the land, the few of us who still identify with nature.",
+              "caption": "- Luis Delgado, community organizer"
+            }
+          ]
         },
         {
         	"name": "connectivity",
-        	"clip":"videos/video-5.mp4"
+        	"clip":"videos/video-5.mp4",
+          "haiku": [
+            {
+              "text": "What we need to learn now is to coexist with nature.\nWe now have extreme environmental pollution and global warming.\nThis is a warning, and it has been foreseen that water is going to extinguish.",
+              "caption": "- Huamantanga community leader, canal revitalization ceremony "
+            },
+            {
+              "text": "We are not going to believe this because we have the ability\nto conserve and store our water. Today we have to re-encounter the\nlandscape and I think it is our task to teach young people to return to nature and water.",
+              "caption": "-Huamantanga community leader, canal revitalization ceremony"
+            },
+            {
+              "text": "I congratulate you for the recovery of these canal systems and\ntribute ceremonies. That are very important not only for this community, but since these\nwaters reach the sea, they bathe many lands down to the shore and provide many other villages with water.",
+              "caption": "- Speaker, canal revitalization ceremony"
+            }
+          ]
        }
       ]
     }
@@ -119,10 +231,10 @@
     
     },
     {
-      "text": "<h3>Lo&bull;om</h3><ul><li>A loom is a device used to weave cloth. The basic purpose of any loom is to hold the warp threads under tension to facilitate the interweaving of the weft threads.</li><li>The precise shape of the loom and its mechanics may vary, but the basic function is the same.<ins>2.5</ins></li></ul>"
+      "text": "<definition><h3>Lo&bull;om</h3><ul><li>A loom is a device used to weave cloth. The basic purpose of any loom is to hold the warp threads under tension to facilitate the interweaving of the weft threads.</li><li>The precise shape of the loom and its mechanics may vary, but the basic function is the same.<ins>2.5</ins></li></ul></definition>"
     },
     {
-      "text": "<h3>Hai&bull;ku</h3><ul><li>A form of Zen poetry, characterized by being three lines: two contrasting ideas with a connecting point.</li><li>Haiku is brief and compressed, it suggests rather than explains.<ins>2.5</ins></li></ul>"
+      "text": "<definition><h3>Hai&bull;ku</h3><ul><li>A form of Zen poetry, characterized by being three lines: two contrasting ideas with a connecting point.</li><li>Haiku is brief and compressed, it suggests rather than explains.<ins>2.5</ins></li></ul></definition>"
 
     },
     {

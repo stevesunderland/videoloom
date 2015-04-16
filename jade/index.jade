@@ -5,6 +5,10 @@ html
 		link(rel="icon" type="image/png" href="icon.png" sizes="192x192")
 		link(rel="apple-touch-icon" href="icon.png" sizes="180x180")
 	body
+		//- home button
+		.logo
+			for i in [1,2,3]
+				div.bar
 		//- loom
 		each i, loomindex in loom
 			div.header(class=i.name)
@@ -22,9 +26,21 @@ html
 		each x, xindex in xthreads
 			each y, yindex in ythreads
 				.grid(data-column=xindex, data-row=yindex)
+		//- haikus --- add the markup here and then lazy load?
+		for axis in loom
+			for thread in axis.threads
+				div.haiku(class=thread.name)
+					.title= thread.name
+					each haiku, index in thread.haiku
+						.slide
+							div.panel.sidebar(data-bg=('img/haiku/'+thread.name+'-'+(index+1)+'a.jpg'))
+							div.panel.image(data-bg=('img/haiku/'+thread.name+'-'+(index+1)+'.jpg'))
+							div.panel.text
+								p!= haiku.text
+								h6= haiku.caption
 		//- footer
 		.header.bottom
-			button Play Sequence
+			button#playButton Play Sequence
 		//- intro modal
 		div#intro
 			//- .table
@@ -32,6 +48,10 @@ html
 			for item in intro
 				.slide !{item.text}
 			button(class='introbutton') Skip Intro
+		//- Bio Page
+		div#bio
+			.inner
+				p [Bio Page Coming Soon]
 		//- video modal
 		div#video
 		//- script
