@@ -326,7 +326,6 @@ button:active {
 }
 .openHaiku .grid,
 .animateLoom .grid {
-  transform: translateY(100vh) !important;
   opacity: 0;
 }
 .haiku {
