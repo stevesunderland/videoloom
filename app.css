@@ -24,6 +24,7 @@ button {
   opacity: 0;
   height: 0;
   overflow: hidden;
+  color: #fff;
 }
 #intro.active {
   height: 100%;
@@ -34,19 +35,44 @@ button {
   opacity: 0;
   bottom: 0;
 }
-#intro .inner {
+#intro .slide {
   padding: 4em;
-  color: #999;
-  text-align: center;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-}
-#intro .inner p {
   max-width: 42em;
+  margin: 0 auto;
+  display: none;
+}
+#intro .slide:nth-child(1) {
+  display: block;
+}
+#intro p,
+#intro ul {
   font-size: 0.8em;
   line-height: 1.5;
-  margin: 0 auto 1em;
+}
+#intro li {
+  margin-bottom: 1em;
+}
+#intro p,
+#intro h3 {
+  margin-top: 0;
+  margin-bottom: 1em;
+}
+#intro button {
+  position: absolute;
+  bottom: 2em;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 5s ease 5s;
+}
+#intro.active button {
+  opacity: 0.5;
+}
+#intro.active button:hover {
+  opacity: 1;
 }
 .header {
   background: rgba(0, 0, 0, 0.5);
@@ -193,7 +219,7 @@ button:active {
 .grid.disabled {
   border-color: rgba(128, 128, 128, 0.5);
   cursor: default;
-  background: rgba(128, 128, 128, 0.5);
+  background: rgba(0, 0, 0, 0.5);
 }
 .animateLoom .grid {
   transform: translateY(100vh) !important;

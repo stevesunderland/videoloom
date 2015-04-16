@@ -68,9 +68,45 @@ var App = {
 		$('#intro').addClass('active');
 
 		$(document).on('click', '#intro button', function(){
+			$('#intro .slide').t('pause');
+			$
 			$('#intro').removeClass('active').addClass('leave');
 			App.createLoom();
 		});
+
+		App.typewriter();
+
+	},
+	typewriter: function(){
+		var slides = $('#intro .slide');
+
+		var counter = 0;
+
+		function type() {
+
+			$(slides[counter]).t({
+				speed: 50,
+				delay: counter == 0 ? 5 : 1,
+				blink: 500,
+				// caret: '|',
+				caret: false,
+				fin: function(el) {
+
+				 	if ( counter == slides.length-1 ) {
+				 		$('#intro button').fadeOut(1000, function(){
+				 			$(this).appendTo($(el)).text('Begin Weaving').fadeIn(1000);
+				 		});
+				 		return false;
+				 	}
+					$(el).slideUp(1000, function(){
+						counter++;
+						type();
+					});
+				}
+			});
+		 }
+
+		 type();
 	},
 	createLoom: function(){
 		console.info('App.createLoom');
@@ -98,7 +134,6 @@ var App = {
 			} else {
 				console.info('please choose a thread');
 			}
-		// $('.buttom button').on('click', function(){
 		});
 	},
 	createThread: function() {
@@ -209,7 +244,6 @@ var App = {
 		} else {
 			$('button').removeClass('active');
 		}
-
 		// fix header highlights
 		$('.header .link').removeClass('selected');
 		$('.grid.selected').each(function(){
@@ -253,8 +287,6 @@ var App = {
 		
 		initVideo();
 
-		console.info('sequence: '+sequence);
-
 		function initVideo(vimeoid) {
 
 			console.info('initVideo');
@@ -263,13 +295,11 @@ var App = {
 				$('#video>iframe').remove();
 	
 				var video = $('<iframe src="https://player.vimeo.com/video/'+sequence[videocounter]+'?autoplay=1&color=999&title=0&byline=0&portrait=0&api=1&player_id=videoframe'+videocounter+'" width="500" height="281" id="videoframe'+videocounter+'"></iframe>');
-				console.log(video);
 
 				video.appendTo(overlay);
 				overlay.fadeIn();
 
 				var player = new Froogaloop( $('#videoframe'+videocounter)[0] );
-				console.info('player: '+player);
 
 				player.addEvent('ready', function(){
 					console.info('player.ready');
@@ -283,9 +313,6 @@ var App = {
 		    console.log('player.finish');
 
 		    videocounter++;
-
-		    console.info('videocounter: '+videocounter);
-		    console.info('sequence.length: ' + sequence.length);
 
 		    if (videocounter < sequence.length) {
 		    	overlay.fadeOut('slow', function(){

@@ -23,6 +23,7 @@ body, button {
 	opacity: 0;
 	height: 0;
 	overflow: hidden;
+	color: #fff;
 
 	&.active {
 		height: 100%;
@@ -33,19 +34,52 @@ body, button {
 		opacity: 0;
 		bottom:0;
 	}
-	.inner {
+	.slide {
 		padding: 4em;
-		color: #999;
-		text-align: center;
+		// color: #999;
+		// text-align: center;
 		position: relative;
 		top: 50%;
 		transform: translateY(-50%);
 
-		p {
-			max-width: 42em;
-			font-size: 0.8em;
-			line-height: 1.5;
-			margin: 0 auto 1em;
+		max-width: 42em;
+		margin: 0 auto;
+
+		display: none;
+
+		// transition: all 0.5s;
+		
+		&:nth-child(1) {
+			display: block;
+		}
+	}
+	p, ul {
+		// max-width: 42em;
+		font-size: 0.8em;
+		line-height: 1.5;
+		// margin: 0 auto 1em;
+	}
+	li {
+		margin-bottom: 1em;
+	}
+	p, h3 {
+		margin-top: 0;
+		margin-bottom: 1em;
+	}
+	button {
+		position: absolute;
+		bottom: 2em;
+		left: 50%;
+		transform: translateX(-50%);
+		opacity: 0;
+		transition: opacity 5s ease 5s;
+
+	}
+	&.active button {
+		opacity: 0.5;
+
+		&:hover {
+			opacity: 1;
 		}
 	}
 }
@@ -235,7 +269,7 @@ button {
 	&.disabled {
 		border-color: fade(gray, 50%);
 		cursor: default;
-		background: fade(gray, 50%);
+		background: fade(black, 50%);
 	}
 
 	.animateLoom & {
