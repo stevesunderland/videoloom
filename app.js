@@ -263,18 +263,23 @@ var App = {
 				left: left
 			})
 			.hover(function(){
+				// console.info('row: '+row);
+				// console.info('column: '+column);
+
 				$('[data-row="'+row+'"]').not('.grid').addClass('hover')
-					.find('video').get(0).play().playbackRate = 1;
+					.find('video').get(0).play();
 				$('[data-column="'+column+'"]').not('.grid').addClass('hover')
-					.find('video').get(0).play().playbackRate = 1;
+					.find('video').get(0).play();
 			}, function(){
 				$('[data-row="'+row+'"]').not('.grid').removeClass('hover')
-					.find('video').not('.selected').get(0).playbackRate = 0.5;
+					.find('video').not('.selected').get(0);
 				$('[data-column="'+column+'"]').not('.grid').removeClass('hover')
-					.find('video').not('.selected').get(0).playbackRate = 0.5;
+					.find('video').not('.selected').get(0);
 			})
 			.on('click touchstart', function(event){
-
+				console.info('row: '+row);
+				console.info('column: '+column);
+				
 				event.stopPropagation();
 
 				if ( $(this).hasClass('disabled') ) {
