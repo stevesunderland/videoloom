@@ -453,6 +453,7 @@ button:active {
 #video iframe {
   height: 100%;
   width: 100%;
+  pointer-events: none;
 }
 #video video {
   min-height: 100%;
