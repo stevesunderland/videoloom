@@ -110,6 +110,10 @@ var App = {
 			$
 			$('#intro').removeClass('active').addClass('leave');
 
+			$('#video').fadeOut(1000, function(){
+				$('#video').html('');
+			});
+
 			App.createLoom();
 		});
 
@@ -198,7 +202,7 @@ var App = {
 
 		$(document).on('click', '.bottom button', function(){
 			console.info('bottom button click');
-			if ( $('.selected').length ) {
+			if ( $('.selected').length == 4 ) {
 				App.animateLoom();
 			} else {
 				console.info('please choose a thread');
