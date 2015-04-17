@@ -454,6 +454,7 @@ button:active {
   height: 100%;
   width: 100%;
   pointer-events: none;
+  border: 0;
 }
 #video video {
   min-height: 100%;
