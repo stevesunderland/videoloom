@@ -63,24 +63,25 @@ var App = {
 	},
 	loadClips: function(){
 		var clips = [1,2,3,4,5,6,7,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25];
-		shuffle(clips);
+		App.shuffle(clips);
 		clips = clips.slice(0,8);
 
 		$('.thread').each(function(index){
 			$(this).find('video').append('<source src="videos/clip-'+clips[index]+'.mp4" type="video/mp4" loop="loop" autoplay="autoplay" playbackRate="0.5"></source>')
 		});
 
-		function shuffle(array) {
-		  var currentIndex = array.length, temporaryValue, randomIndex ;
-		  while (0 !== currentIndex) {
-		    randomIndex = Math.floor(Math.random() * currentIndex);
-		    currentIndex -= 1;
-		    temporaryValue = array[currentIndex];
-		    array[currentIndex] = array[randomIndex];
-		    array[randomIndex] = temporaryValue;
-		  }
-		  return array;
-		}
+
+	},
+	shuffle: function(array) {
+	  var currentIndex = array.length, temporaryValue, randomIndex ;
+	  while (0 !== currentIndex) {
+	    randomIndex = Math.floor(Math.random() * currentIndex);
+	    currentIndex -= 1;
+	    temporaryValue = array[currentIndex];
+	    array[currentIndex] = array[randomIndex];
+	    array[randomIndex] = temporaryValue;
+	  }
+	  return array;
 	},
 	getVideos: function(){
 		console.info('app.getVideos');
@@ -118,9 +119,21 @@ var App = {
 	typewriter: function(){
 		var slides = $('#intro .slide');
 
+		$(slides).each(function(){
+			$(this).css('height', $(this).height() );
+		});
+
 		var counter = 0;
 
+		var clips = [1,3,6,7,10,12,14,16,17,19,20,22,25]; // clip 11 is so perfect why won't it loop!!!!!!!! also 13 and 5
+		App.shuffle(clips);
+		clips = clips.slice(0,slides.length);
+
+		$('#video').fadeIn().html('<video loop="loop" autoplay="autoplay" muted><source src="videos/clip-'+clips[counter]+'.mp4" type="video/mp4"></source></video>');
+
+
 		function type() {
+			console.info('type');
 
 			$(slides[counter]).t({
 				speed: 50,
@@ -130,16 +143,25 @@ var App = {
 				caret: false,
 				fin: function(el) {
 
+					console.info('fin');
+					console.info(el);
+
 				 	if ( counter == slides.length-1 ) {
 				 		$('#intro button').fadeOut(1000, function(){
 				 			$(this).appendTo($(el)).hide().text('Begin Weaving').fadeIn(1000);
 				 		});
 				 		return false;
 				 	}
-					$(el).slideUp(1000, function(){
+
+				 	$('#video').animate({ opacity: 0 }, 1000, function(){
+				 		$(this).html('<video loop="true" autoplay="true" muted><source src="videos/clip-'+clips[counter+1]+'.mp4" type="video/mp4"></source></video>').animate({ opacity: 1 }, 1000);
+				 	});
+
+					$(el).animate({ height: 0, opacity: 0 }, 1000, function(){
 						counter++;
 						type();
 					});
+				 	// change video clip
 				}
 			});
 		 }
