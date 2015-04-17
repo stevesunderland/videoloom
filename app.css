@@ -134,6 +134,9 @@ button {
   font-size: 0.9em;
   line-height: 1.75;
 }
+#intro ul {
+  margin-bottom: 0;
+}
 #intro li {
   margin-bottom: 1em;
 }
@@ -153,7 +156,7 @@ button {
 #intro section {
   height: 100%;
   color: gold;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 4em;
 }
 #intro.active button {
@@ -366,7 +369,7 @@ button:active {
   color: gold;
   text-align: center;
   z-index: 999;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   transition: all 5s;
   transition-delay: 1s;
   transform: translateY(100vh);
@@ -422,7 +425,7 @@ button:active {
 .haiku .slide .panel.text {
   top: auto;
   bottom: 200px;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.7);
   color: #eee;
   padding: 4em;
   padding-left: calc(300px);

@@ -162,6 +162,9 @@ body, button {
 		line-height: 1.75;
 		// margin: 0 auto 1em;
 	}
+	ul {
+		margin-bottom: 0;
+	}
 	li {
 		margin-bottom: 1em;
 	}
@@ -171,6 +174,7 @@ body, button {
 	}
 	button {
 		position: absolute;
+		// margin-top: 2em;
 		bottom: 2em;
 		left: 50%;
 		transform: translateX(-50%);
@@ -181,7 +185,7 @@ body, button {
 	section {
 		height: 100%;
 		color: gold;
-		background-color: fade(white, 10%);
+		background-color: fade(black, 70%);
 		padding: 4em;
 	}
 	&.active button {
@@ -460,7 +464,7 @@ button {
 		color: gold;
 		text-align: center;
 		z-index: 999;
-		background-color: fade(black, 50%);
+		background-color: fade(black, 70%);
 		
 		transition: all 5s;
 		transition-delay: 1s;
@@ -536,7 +540,7 @@ button {
 			&.text {
 				top: auto;
 				bottom: 200px;
-				background: fade(black, 90%);
+				background: fade(black, 70%);
 				// background: black;
 				color: #eee;
 				padding: 4em;

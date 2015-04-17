@@ -147,12 +147,9 @@ var App = {
 				caret: false,
 				fin: function(el) {
 
-					console.info('fin');
-					console.info(el);
-
 				 	if ( counter == slides.length-1 ) {
 				 		$('#intro button').fadeOut(1000, function(){
-				 			$(this).appendTo($(el)).hide().text('Begin Weaving').css({ marginTop: '2em' }).fadeIn(1000);
+				 			$(this).appendTo($(el)).hide().text('Begin Weaving').css({ bottom: 0 }).fadeIn(1000);
 				 		});
 				 		return false;
 				 	}
