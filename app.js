@@ -202,7 +202,7 @@ var App = {
 
 		$(document).on('click', '.bottom button', function(){
 			console.info('bottom button click');
-			if ( $('.selected').length == 4 ) {
+			if ( $('.grid.selected').length == 4 ) {
 				App.animateLoom();
 			} else {
 				console.info('please choose a thread');
