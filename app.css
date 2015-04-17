@@ -366,7 +366,7 @@ button:active {
   color: gold;
   text-align: center;
   z-index: 999;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.5);
   transition: all 5s;
   transition-delay: 1s;
   transform: translateY(100vh);
@@ -445,7 +445,6 @@ button:active {
   z-index: 0;
   height: 100%;
   width: 100%;
-  transition: all 5s;
   transition-delay: 2s;
   background-color: #000;
   opacity: 0;

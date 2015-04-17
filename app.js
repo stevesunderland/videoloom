@@ -133,7 +133,7 @@ var App = {
 		App.shuffle(clips);
 		clips = clips.slice(0,slides.length);
 
-		$('#video').fadeIn().html('<video loop="loop" autoplay="autoplay" muted><source src="videos/clip-'+clips[counter]+'.mp4" type="video/mp4"></source></video>');
+		$('#video').html('<video loop="loop" autoplay="autoplay" muted><source src="videos/clip-'+clips[counter]+'.mp4" type="video/mp4"></source></video>').find('video').hide().fadeIn(2000);
 
 
 		function type() {
@@ -152,19 +152,19 @@ var App = {
 
 				 	if ( counter == slides.length-1 ) {
 				 		$('#intro button').fadeOut(1000, function(){
-				 			$(this).appendTo($(el)).hide().text('Begin Weaving').fadeIn(1000);
+				 			$(this).appendTo($(el)).hide().text('Begin Weaving').css({ marginTop: '2em' }).fadeIn(1000);
 				 		});
 				 		return false;
 				 	}
 
-				 	$('#video').animate({ opacity: 0 }, 1000, function(){
-				 		$(this).html('<video loop="true" autoplay="true" muted><source src="videos/clip-'+clips[counter+1]+'.mp4" type="video/mp4"></source></video>').animate({ opacity: 1 }, 1000);
+				 	$('#video > video').animate({ opacity: 0 }, 1000, function(){
+				 		$(this).attr('src', 'videos/clip-'+clips[counter+1]+'.mp4').animate({ opacity: 1 }, 1000);
 				 	});
-
 					$(el).animate({ height: 0, opacity: 0 }, 1000, function(){
 						counter++;
 						type();
 					});
+
 				 	// change video clip
 				}
 			});
