@@ -110,7 +110,7 @@ var App = {
 			$
 			$('#intro').removeClass('active').addClass('leave');
 
-			$('#video').fadeOut(1000, function(){
+			$('#video > video').fadeOut(1000, function(){
 				$('#video').html('');
 			});
 
