@@ -15,9 +15,6 @@ var App = {
 	init: function(){
 		console.info('App.init');
 		App.showIntro();
-		// App.loadVideos();
-		// App.createLoom();
-
 		// App.openHaiku('landscape');
 
 		$.each( $('.grid'), function(){
@@ -33,28 +30,31 @@ var App = {
 	},
 	logo: function(){
 		$('.logo').on('click', function(){
-
-			console.info('logo click');
-
 			
 			if ( $('body').hasClass('openHaiku') ) { // if haiku is open
 				console.info('close haiku');
+
 				$('body').removeClass('openHaiku');
 				$('.haiku').removeClass('active');
 				clearInterval(timeout);
 			} else if ( $('iframe').length ) { // if video is playing
-				
+				console.info('close video');
+
 				$('#video').fadeOut('slow', function(){
 					$('#videoframe').remove();
+					$('#video > iframe').remove();
 					$('body').removeClass('animateLoom');
 				});
 			} else if ( $('body').hasClass('showBio') ) {  // if bio page is open
+				console.info('close bio');
+
 				$('body').removeClass('showBio animateLoom');
 			} else {
+				console.info('show bio');
+
 				App.showBio();
 			}
-
-		})
+		});
 	},
 	showBio: function() {
 		console.info('App.showBio');
@@ -62,15 +62,14 @@ var App = {
 		$('body').addClass('showBio animateLoom');
 	},
 	loadClips: function(){
-		var clips = [1,2,3,4,5,6,7,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25];
+		// var clips = [1,2,3,4,5,6,7,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25];
+		var clips = [1,3,6,7,10,12,14,16,17,19,20,22,25];
 		App.shuffle(clips);
 		clips = clips.slice(0,8);
 
 		$('.thread').each(function(index){
 			$(this).find('video').append('<source src="videos/clip-'+clips[index]+'.mp4" type="video/mp4" loop="loop" autoplay="autoplay" playbackRate="0.5"></source>')
 		});
-
-
 	},
 	shuffle: function(array) {
 	  var currentIndex = array.length, temporaryValue, randomIndex ;
@@ -102,23 +101,18 @@ var App = {
 		console.info('App.showIntro');
 
 		$('body').addClass('showIntro');
-
 		$('#intro').addClass('active');
 
 		$(document).on('click', '#intro button', function(){
 			$('#intro .slide').t('pause');
-			$
 			$('#intro').removeClass('active').addClass('leave');
 
 			$('#video > video').fadeOut(1000, function(){
-				$('#video').html('');
+				$('#video > video').remove();
 			});
-
 			App.createLoom();
 		});
-
 		App.typewriter();
-
 	},
 	typewriter: function(){
 		var slides = $('#intro .slide');
@@ -128,13 +122,11 @@ var App = {
 		});
 
 		var counter = 0;
-
-		var clips = [1,3,6,7,10,12,14,16,17,19,20,22,25]; // clip 11 is so perfect why won't it loop!!!!!!!! also 13 and 5
+		var clips = [1,3,6,7,10,12,14,16,17,19,20,22,25];
 		App.shuffle(clips);
 		clips = clips.slice(0,slides.length);
 
 		$('#video').html('<video loop="loop" autoplay="autoplay" muted><source src="videos/clip-'+clips[counter]+'.mp4" type="video/mp4"></source></video>').find('video').hide().fadeIn(2000);
-
 
 		function type() {
 			console.info('type');
@@ -143,7 +135,6 @@ var App = {
 				speed: 50,
 				delay: counter == 0 ? 5 : 1,
 				blink: 500,
-				// caret: '|',
 				caret: false,
 				fin: function(el) {
 
@@ -161,12 +152,9 @@ var App = {
 						counter++;
 						type();
 					});
-
-				 	// change video clip
 				}
 			});
 		 }
-
 		 type();
 	},
 	createLoom: function(){
@@ -174,8 +162,6 @@ var App = {
 
 		$('body').removeClass('showIntro').addClass('createLoom');
 
-		// App.drawHeaders();
-		// App.createGrid();
 		App.createThread();
 	},
 	drawHeaders: function(){
@@ -185,16 +171,10 @@ var App = {
 			.addClass('active')
 			.find('.link')
 			.on('click', function(event){
-				// close existing haikus
-
 				$('.haiku').removeClass('active').find('.slide').removeClass('active');
 				$(this).addClass('active');
 
-
-				// $('.haiku').fadeOut(1000, function(){
-					App.openHaiku( $(this).text() );
-				// }
-
+				App.openHaiku( $(this).text() );
 			});
 
 		$(document).on('click', '.bottom button', function(){
@@ -221,13 +201,12 @@ var App = {
 			var height = column > -1 ? '100%' : threadHeight;
 
 			var style = {};
-			style.left = isColumn ? -left : 0;
-			style.top = isColumn ? 0 : -top;
-			style.width = isColumn ? 0 : width;
-			style.height = isColumn ? height : 0;
-			style.opacity = 0;
+				style.left = isColumn ? -left : 0;
+				style.top = isColumn ? 0 : -top;
+				style.width = isColumn ? 0 : width;
+				style.height = isColumn ? height : 0;
+				style.opacity = 0;
 
-			// var myindex = row || column;
 			var myindex = isRow ? $('thread[data-row]').length - row : $('.thread[data-column]').length - column;
 
 			$(this).css(style).delay(500*myindex).animate({
@@ -252,7 +231,6 @@ var App = {
 
 			var row = $(this).data('row');
 			var column = $(this).data('column');
-
 			var top = headerHeight + gutter*(row + 1) + threadHeight*row - 1;
 			var left = headerHeight + gutter*(column + 1) + threadWidth*column - 1;
 
@@ -263,9 +241,6 @@ var App = {
 				left: left
 			})
 			.hover(function(){
-				// console.info('row: '+row);
-				// console.info('column: '+column);
-
 				$('[data-row="'+row+'"]').not('.grid').addClass('hover')
 					.find('video').get(0).play();
 				$('[data-column="'+column+'"]').not('.grid').addClass('hover')
@@ -277,25 +252,18 @@ var App = {
 					.find('video').not('.selected').get(0);
 			})
 			.on('click touchstart', function(event){
-				console.info('row: '+row);
-				console.info('column: '+column);
-				
 				event.stopPropagation();
 
 				if ( $(this).hasClass('disabled') ) {
 					return false;
 				}
-
 				if ($(this).hasClass('selected')) {
-
 					$(this).removeClass('selected');
-
 					$('[data-column="'+column+'"]').not('.grid').removeClass('selected')
 						.find('video').not('.selected').removeClass('selected').get(0).playbackRate = 0.5;
 					$('[data-row="'+row+'"]').not('.grid').removeClass('selected')
 						.find('video').not('.selected').removeClass('selected').get(0).playbackRate = 0.5;
 				} else {
-
 					$('.grid[data-column="'+column+'"]').removeClass('selected');
 					$('.grid[data-row="'+row+'"]').removeClass('selected');
 
@@ -319,7 +287,6 @@ var App = {
 		} else {
 			$('#playButton').removeClass('active');
 		}
-		// fix header highlights
 		$('.header .link').removeClass('selected');
 		$('.grid.selected').each(function(){
 			var col = $(this).data('column');
@@ -333,23 +300,19 @@ var App = {
 		$('body').addClass('animateLoom');
 
 		App.playSequence();
-
 	},
 	openHaiku: function(haiku){
-
-		$('body').addClass('openHaiku');
 		console.info('App.openHaiku: '+haiku);
 
+		$('body').addClass('openHaiku');
+
 		var slider = $('.haiku.'+haiku);
-
-		slider.addClass('active');
-
 		var slides = slider.find('.slide');
-		console.info('slides.length: '+slides.length);
 		var speed = 1000*13;
 		var slidecounter = 1;
 
-		//lazy load images
+		slider.addClass('active');
+
 		$(slides).each(function(){
 			$(this).find('.sidebar, .image').each(function(){
 				$(this).css('backgroundImage', 'url(' + $(this).data('bg') + ')' );
@@ -359,18 +322,12 @@ var App = {
 		$(slides[0]).addClass('active');
 		
 		timeout = setInterval(function(){
-			console.info('rotate');
-			console.info(slides[slidecounter]);
 			$(slides).not( $(slides[slidecounter]) ).removeClass('active');
 			$(slides[slidecounter]).addClass('active');
 			speed = 1000*3;
 			slidecounter ++;
 			if ( slidecounter == slides.length ) slidecounter = 0;
-			
 		}, speed);
-
-
-
 	},
 	closeHaiku: function(){
 		//
@@ -400,27 +357,23 @@ var App = {
 		initVideo();
 
 		function initVideo(vimeoid) {
-
 			console.info('initVideo');
 
 			$('#video').fadeOut('slow', function(){
 				$('#video>iframe').remove();
 	
 				var video = $('<iframe src="https://player.vimeo.com/video/'+sequence[videocounter]+'?autoplay=1&color=999&title=0&byline=0&portrait=0&api=1&player_id=videoframe'+videocounter+'" width="500" height="281" id="videoframe'+videocounter+'"></iframe>');
+				var player = new Froogaloop( $('#videoframe'+videocounter)[0] );
 
 				video.appendTo(overlay);
 				overlay.fadeIn();
-
-				var player = new Froogaloop( $('#videoframe'+videocounter)[0] );
 
 				player.addEvent('ready', function(){
 					console.info('player.ready');
 					player.addEvent('finish', onFinish);
 				});
 			});
-
 		}
-
 		function onFinish(id) {
 		    console.log('player.finish');
 
@@ -440,7 +393,6 @@ var App = {
 		}
 	}
 }
-
 $(document).ready(function(){
 	App.init();
 });

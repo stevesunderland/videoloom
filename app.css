@@ -11,9 +11,6 @@ body,
 button {
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
-/*video {
-	display: none;
-}*/
 .logo {
   position: absolute;
   z-index: 999999;
@@ -321,7 +318,7 @@ button:active {
   border: 2px solid transparent;
   position: absolute;
   z-index: 999;
-  transition: all 1s;
+  transition: border-color 1s, opacity 5s, transform 5s;
   opacity: 1;
 }
 .grid:hover {
@@ -332,12 +329,13 @@ button:active {
   box-shadow: 0 0 1em rgba(0, 0, 0, 0.25);
 }
 .grid.disabled {
-  border-color: rgba(0, 0, 0, 0.5);
+  border-color: transparent;
   cursor: default;
   background: rgba(0, 0, 0, 0.5);
 }
 .openHaiku .grid,
 .animateLoom .grid {
+  transform: translateY(100vh) !important;
   opacity: 0;
 }
 .haiku {
@@ -381,7 +379,7 @@ button:active {
   bottom: 0;
   right: 0;
   opacity: 0;
-  transition: all 5s;
+  transition: transform 5s, opacity 10s;
 }
 .haiku .slide.active {
   opacity: 1;
@@ -425,12 +423,12 @@ button:active {
 .haiku .slide .panel.text {
   top: auto;
   bottom: 200px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   color: #eee;
   padding: 4em;
   padding-left: calc(300px);
   transform: translateY(-100vh);
-  transition-delay: 2s;
+  transition-delay: 1s;
   opacity: 0;
   z-index: 999;
 }

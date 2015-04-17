@@ -12,9 +12,6 @@ body, html {
 body, button {
 		font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
-/*video {
-	display: none;
-}*/
 .logo {
 	position: absolute;
 	z-index: 999999;
@@ -30,13 +27,6 @@ body, button {
 		opacity: 1;
 		
 		.bar {
-
-
-			// &:before {
-			// 	top: 0;
-			// 	left: 0;
-			// }
-
 			&:nth-child(1) {
 				left: 1.5em;
 
@@ -62,13 +52,10 @@ body, button {
 				}
 			}
 		}
-
 	}
-
 	.showIntro & {
 		opacity: 0;
 	}
-
 	.bar {
 		position: absolute;
 		left: 0; top: 0;
@@ -90,7 +77,6 @@ body, button {
 			margin-left: -1px;
 			transition: all 1s;
 		}
-
 		&:nth-child(1) {
 			left: 0.5em;
 
@@ -122,7 +108,6 @@ body, button {
 	z-index: 9999;
 	height: 100%;
 	width: 100%;
-	// background-color: #000;
 	background-color: rgba(0,0,0,0.5);
 	transition: all 5s;
 	opacity: 0;
@@ -141,8 +126,6 @@ body, button {
 	}
 	.slide {
 		padding: 4em;
-		// color: #999;
-		// text-align: center;
 		position: absolute;
 		width: 100%;
 		top: 50%;
@@ -157,10 +140,8 @@ body, button {
 		}
 	}
 	p, ul {
-		// max-width: 42em;
 		font-size: 0.9em;
 		line-height: 1.75;
-		// margin: 0 auto 1em;
 	}
 	ul {
 		margin-bottom: 0;
@@ -174,7 +155,6 @@ body, button {
 	}
 	button {
 		position: absolute;
-		// margin-top: 2em;
 		bottom: 2em;
 		left: 50%;
 		transform: translateX(-50%);
@@ -207,11 +187,9 @@ body, button {
 	text-align: center;
 	text-transform: uppercase;
 	z-index: 999;
-
 	opacity: 0;
 	transform: translateY(-100%);
 	transition: all 2s;
-	
 	width: 100%;
 	height: @headerHeight;
 	
@@ -219,16 +197,13 @@ body, button {
 		opacity: 1;
 		transform: translateY(0%);
 	}
-
 	&.conceptual {
-		// display: none;
 		width: 100vh;
 		transform-origin: 0 50%;
 		transform: rotate(-90deg) translate(-96%, -100%);
 
 		.createLoom & {
 			transform: rotate(-90deg) translate(-96%, 50%);
-
 		}
 		.showHaiku &,
 		.animateLoom & {
@@ -236,7 +211,6 @@ body, button {
 		}
 		.openHaiku & {
 			opacity: 0;
-			// transform: translateX(100vh);
 		}
 	}
 	&.perceptual {
@@ -254,7 +228,6 @@ body, button {
 
 		.createLoom & {
 			transform: translateY(0%);
-
 		}
 		.animateLoom & {
 			transform: translateY(100%) !important;
@@ -263,7 +236,6 @@ body, button {
 			transform: translateY(100%) !important;
 		}
 	}
-
 	.title {
 		font-weight: 100;
 		letter-spacing: .2em;
@@ -271,11 +243,9 @@ body, button {
 		font-size: 1.5em;
 		color: rgba(255,255,255,0.25);
 	}
-
 	.buttons {
 		margin: 0 80px;
 	}
-
 	.link {
 		color: rgba(255,255,255,0.5);
 		font-size: 0.7em;
@@ -334,13 +304,9 @@ button {
 	position: absolute;
 	background-color: rgba(0,0,0,1);
 	z-index: 9;
-	// opacity: 0.25;
 	opacity: 0.5;
 	overflow: hidden;
-
-	// transform: translateY(-100%);
 	transition: all 5s;
-
 
 	// &:nth-child(1) {
 	// 	transition-delay: 0s;
@@ -356,7 +322,6 @@ button {
 	// 	transition-delay: 3s;
 	// }
 
-	
 	.createLoom & {
 		transform: translateY(0%);
 
@@ -391,14 +356,12 @@ button {
 		left: 0;
 	}
 }
-
-
 .grid {
 	cursor: pointer;
 	border: 2px solid transparent;
 	position: absolute;
 	z-index: 999;
-	transition: all 1s;
+	transition: border-color 1s, opacity 5s, transform 5s;
 	opacity: 1;
 
 	&:hover {
@@ -409,41 +372,23 @@ button {
 		box-shadow: 0 0 1em rgba(0,0,0,0.25);
 	}
 	&.disabled {
-		border-color: fade(black, 50%);
+		border-color: transparent;
 		cursor: default;
 		background: fade(black, 50%);
 	}
-	
 	.openHaiku &,
 	.animateLoom & {
-		// transform: translateY(100vh) !important;
+		transform: translateY(100vh) !important;
 		opacity: 0;
 	}
 }
-
-// .overlay {
-// 	position: absolute;
-// 	z-index: 99999;
-// 	background-color: #000;
-// 	height: 100%;
-// 	width: 100%;
-	
-// 	video {
-// 		min-height: 100%;
-// 		min-width: 100%;
-// 	}
-// }
-
 .haiku {
 	background-color: #000;
 	position: absolute;
 	top: 0; left: 0;
 	bottom: 0; right: 0;
 	opacity: 0;
-	// height: 100vh;
 	transition: all 5s;
-	// width: 100%;
-	// height: 100vh;
 
 	&.active {
 		opacity: 1;
@@ -452,7 +397,6 @@ button {
 			transform: translateY(0);
 		}
 	}
-
 	.title {
 		position: absolute;
 		top: 0; left: 0; right: 0;
@@ -465,22 +409,16 @@ button {
 		text-align: center;
 		z-index: 999;
 		background-color: fade(black, 70%);
-		
 		transition: all 5s;
 		transition-delay: 1s;
-
 		transform: translateY(100vh);
-
 	}
-
 	.slide {
 		position: absolute;
 		top: 0; left: 0;
 		bottom: 0; right: 0;
-
 		opacity: 0;
-
-		transition: all 5s;
+		transition: transform 5s, opacity 10s;
 
 		&.active {
 			opacity: 1;
@@ -490,19 +428,16 @@ button {
 					transform: translateX(0);
 					opacity: 1;
 				}
-
 				&.image {
 					transform: translateX(0);
 					opacity: 1;
 				}
-
 				&.text {
 					transform: translateY(0);
 					opacity: 1;
 				}
 			}
 		}
-
 		.panel {
 			position: absolute;
 			top: 0; left: 0;
@@ -514,53 +449,33 @@ button {
 			&.sidebar {
 				right: auto;
 				width: 200px;
-			
 				transform: translateX(100vw);
-
 				opacity: 0;
-
 				z-index: 99;
-
 			}
-
 			&.image {
 				left: calc(200px + @gutter);
-
 				transform: translateX(-100vw);
-
 				transition-delay: 0.5s;
-
 				opacity: 0;
-
 				z-index: 9;
-				
-
 			}
-
 			&.text {
 				top: auto;
 				bottom: 200px;
-				background: fade(black, 70%);
-				// background: black;
+				background: fade(black, 80%);
 				color: #eee;
 				padding: 4em;
 				padding-left: calc(300px);
-
 				transform: translateY(-100vh);
-
-				transition-delay: 2s;
-
+				transition-delay: 1s;
 				opacity: 0;
-
 				z-index: 999;
-
-
 
 				p {
 					white-space: pre;
 					line-height: 2;
 				}
-
 				h6 {
 					font-weight: normal;
 					font-size: 1em;
@@ -570,16 +485,12 @@ button {
 		}
 	}
 }
-
-
 #video {
 	position: relative;
 	z-index: 0;
 	height: 100%;
 	width: 100%;
-	// transition: all 5s;
 	transition-delay: 2s;
-	// transform: translateY(100vh);
 	background-color: #000;
 	opacity: 0;
 
@@ -587,36 +498,25 @@ button {
 		height: 100%;
 		width: 100%;
 	}
-
 	video {
 		min-height: 100%;
 		min-width: 100%;
 	}
-	
 	.showIntro &,
 	.animateLoom & {
 		opacity: 1;
-		// transform: translateY(0);
 	}
-
-
 }
-
 #bio {
 	position: absolute;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
-	
 	background-color: gold;
-
-	// display: none;
 	opacity: 0;
-
 	transition: all 5s;
 	z-index: 999;
-
 	top: 100vh;
 
 	.showBio & {
@@ -624,7 +524,6 @@ button {
 		display: block;
 		opacity: 1;
 	}
-
 	.inner {
 		position: absolute;
 		top: 50%;
@@ -635,5 +534,4 @@ button {
 		letter-spacing: .2em;
 		text-align: center;
 	}
-
 }
