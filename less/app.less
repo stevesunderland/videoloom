@@ -814,14 +814,16 @@ button {
 	position: absolute;
 	top: 0; bottom: 0;
 	left: 0; right: 0;
-	background-color: #000;
+	// background-color: #000;
 	z-index: 99999;
+
+	background-image: url(../img/haiku/embodiment-2.jpg);
+	background-size: cover;
+	background-position: center center;
 
 	top: 100vh;
 	opacity: 0;
 	transition: all 5s;
-
-	padding-top: 80px;
 
 	.showInfo & {
 		top: 0;
@@ -830,11 +832,12 @@ button {
 
 	.info-container {
 		display: flex;
-		padding: 0 150px;
+		padding: 0 100px;
+		background-color: rgba(0,0,0,0.6);
 
 		.info {
 			flex: 1;
-			padding: 1em;
+			padding: 80px 1em 0;
 
 			h3 {
 				font-weight: normal;
@@ -852,10 +855,20 @@ button {
 	
 		.credits {
 			width: 250px;
-			padding: 0 1em;
+			padding: 80px 1em 0;
+			transform: translateY(100vh);
+			transition: all 5s;
+
+			.showInfo & {
+				transform: translateY(0);
+			}
 
 			&.artist {
-				padding-top: 1em;
+				// padding-top: 1em;
+				background-color: #000;
+
+
+
 				p {
 					font-size: 0.9em;
 					line-height: 1.5;
@@ -863,6 +876,8 @@ button {
 			}
 
 			&:not(.artist) {
+				transition-delay: 2.5s;
+
 				p {
 					margin-bottom: 0;
 				}
@@ -890,7 +905,8 @@ button {
 				margin-top: 2em;
 				margin-bottom: 0;
 				text-transform: uppercase;
-				color: gray;
+				color: rgba(255,255,255,0.5);
+				letter-spacing: .1em;
 			}
 		}
 	}
