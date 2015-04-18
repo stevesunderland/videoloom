@@ -25,8 +25,8 @@ var App = {
 
 			$(this).data('verse', combined);
 		});
-		App.getVideos();
-		App.loadClips();
+		// App.getVideos();
+		// App.loadClips();
 		App.logo();
 		App.info();
 	},
@@ -80,12 +80,17 @@ var App = {
 	},
 	loadClips: function(){
 		// var clips = [1,2,3,4,5,6,7,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25];
-		var clips = [1,3,6,7,10,12,14,16,17,19,20,22,25];
-		App.shuffle(clips);
-		clips = clips.slice(0,8);
+		// var clips = [1,3,6,7,10,12,14,16,17,19,20,22,25];
+		// App.shuffle(clips);
+		// clips = clips.slice(0,8);
 
 		$('.thread').each(function(index){
-			$(this).find('video').append('<source src="videos/clip-'+clips[index]+'.mp4" type="video/mp4" loop="loop" autoplay="autoplay" playbackRate="0.5"></source>')
+			var clips = $(this).data('clips');
+			App.shuffle(clips);
+
+			$(this).find('video').get(0).defaultPlaybackRate = 0.1;
+			$(this).find('video').append('<source src="videos/clip-'+clips[0]+'.mp4" type="video/mp4"></source>');
+			$(this).find('video').get(0).playbackRate = 0.1;
 		});
 	},
 	shuffle: function(array) {
@@ -175,6 +180,10 @@ var App = {
 		 type();
 	},
 	createLoom: function(){
+
+		App.getVideos();
+		App.loadClips();
+
 		console.info('App.createLoom');
 
 		$('body').removeClass('showIntro').addClass('createLoom');
@@ -262,11 +271,21 @@ var App = {
 					.find('video').get(0).play();
 				$('[data-column="'+column+'"]').not('.grid').addClass('hover')
 					.find('video').get(0).play();
+
+				$('[data-column="'+column+'"], [data-row="'+row+'"]').not('.grid').find('video').not('.selected').each(function(){
+					var video = $(this).get(0);
+					video.playbackRate = 0.5;
+				});
 			}, function(){
 				$('[data-row="'+row+'"]').not('.grid').removeClass('hover')
 					.find('video').not('.selected').get(0);
 				$('[data-column="'+column+'"]').not('.grid').removeClass('hover')
 					.find('video').not('.selected').get(0);
+
+				$('[data-column="'+column+'"], [data-row="'+row+'"]').not('.grid').find('video').not('.selected').each(function(){
+					var video = $(this).get(0);
+					video.playbackRate = 0.1;
+				});
 			})
 			.on('click touchstart', function(event){
 				event.stopPropagation();
@@ -277,17 +296,28 @@ var App = {
 				if ($(this).hasClass('selected')) {
 					$(this).removeClass('selected');
 					$('[data-column="'+column+'"]').not('.grid').removeClass('selected')
-						.find('video').not('.selected').removeClass('selected').get(0).playbackRate = 0.5;
+						.find('video').not('.selected').removeClass('selected');
 					$('[data-row="'+row+'"]').not('.grid').removeClass('selected')
-						.find('video').not('.selected').removeClass('selected').get(0).playbackRate = 0.5;
+						.find('video').not('.selected').removeClass('selected');
+
+					$('[data-column="'+column+'"], [data-row="'+row+'"]').not('.grid').find('video').not('.selected').each(function(){
+						var video = $(this).get(0);
+						video.playbackRate = 0.1;
+					});
+
 				} else {
 					$('.grid[data-column="'+column+'"]').removeClass('selected');
 					$('.grid[data-row="'+row+'"]').removeClass('selected');
 
 					$('[data-column="'+column+'"]').not('.grid').addClass('selected')
-						.find('video').addClass('selected').get(0).playbackRate = 1;
+						.find('video').addClass('selected');
 					$('[data-row="'+row+'"]').not('.grid').addClass('selected')
-						.find('video').addClass('selected').get(0).playbackRate = 1;
+						.find('video').addClass('selected');
+
+					$('[data-column="'+column+'"], [data-row="'+row+'"]').not('.grid').find('video').each(function(){
+						var video = $(this).get(0);
+						video.playbackRate = 1;
+					});
 
 					$(this).addClass('selected');
 				}

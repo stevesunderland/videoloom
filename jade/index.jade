@@ -18,8 +18,8 @@ html
 					each t, threadindex in i.threads
 						.link(class=t.name, data-column=(loomindex == 0 ? threadindex : null) data-row=(loomindex == 0 ? null : (i.threads.length - threadindex - 1))) #{t.name}
 			each t, index in i.threads
-				div.thread(class=t.name, data-column=(loomindex == 0 ? index : null ), data-row=(loomindex == 0 ? null : index))
-					video(loop, muted)
+				div.thread(class=t.name,data-clips=t.clips, data-column=(loomindex == 0 ? index : null ), data-row=(loomindex == 0 ? null : index))
+					video(loop, muted, autoplay, defaultPlaybackRate="0.1")
 						//- source(src=t.clip)
 		//- grid
 		- var xthreads = loom[0].threads

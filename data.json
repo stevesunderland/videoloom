@@ -5,7 +5,7 @@
       "threads": [
         {
         	"name": "underground",
-        	"clip": "videos/clip-1.mp4",
+        	"clips": [6,5,11,16],
           "haiku": [
             {
               "text": "We are seeing that an economy based on the exploitation of natural resources\nis like extracting the bones and blood of human beings or looting the scalp, which is irreplaceable.",
@@ -23,7 +23,7 @@
         },
         {
         	"name": "biodiversity",
-        	"clip": "videos/clip-6.mp4",
+        	"clips": [24,29,31,37],
           "haiku": [
             {
               "text": "We used to have 400 different species of trees in the valley of Cusco,\nmany parts of the Andes were evergreen, but now we only have a few dozen tree species left.",
@@ -41,7 +41,7 @@
         },
         {
         	"name": "human",
-        	"clip":"videos/clip-4.mp4",
+        	"clips":[1,7,44,42],
           "haiku": [
             {
               "text": "Young people go to Lima. Why this migration? They leave due to lack of opportunities.\nOne of the reasons is the lack of water. Now we can’t have big farming areas and even cattle is greatly reduced.",
@@ -59,7 +59,7 @@
         },
         {
         	"name": "landscape",
-        	"clip": "videos/clip-2.mp4",
+        	"clips": [2,12,26,27,14],
           "haiku": [
             {
               "text": "Forests have been pillaged.\nThe mountains are losing their perennial snow.\nIn 20 years we will have conflicts over the water.",
@@ -82,7 +82,7 @@
       "threads": [
         {
         	"name": "adaptability",
-        	"clip": "videos/clip-5.mp4",
+        	"clips": [6,19,38,43],
           "haiku": [
             {
               "text": "I will tell you about my community. From 1960 to 1980, there was too\nmuch winter and plenty of water, then from1990 on we had a drought that\nlasted for 3 years. After that, the winters left and they never were the same again.",
@@ -100,7 +100,7 @@
         },
         {
         	"name": "embodiment",
-        	"clip": "videos/clip-7.mp4",
+        	"clips": [20,10,41,33],
           "haiku": [
             {
               "text": "Then plastic technology and plastic culture came overnight.\nNowadays, everything that we buy is in a plastic bag and the water is being poisoned with trash.",
@@ -118,7 +118,7 @@
         },
         {
         	"name": "assembledge",
-        	"clip": "videos/clip-3.mp4",
+        	"clips": [15,3,28,21,30,35],
           "haiku": [
             {
               "text": "500 years ago we Incans had a strong clash, a cultural clash.\nOur indigenous culture almost vanished completely. Since then we\nhave been overshadowed by becoming more and more indifferent to nature.",
@@ -136,7 +136,7 @@
         },
         {
         	"name": "connectivity",
-        	"clip":"videos/video-5.mp4",
+        	"clips": [2,25,17,45,22,32],
           "haiku": [
             {
               "text": "What we need to learn now is to coexist with nature.\nWe now have extreme environmental pollution and global warming.\nThis is a warning, and it has been foreseen that water is going to extinguish.",
