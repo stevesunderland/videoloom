@@ -246,5 +246,79 @@
     {
       "text": "<p>This expanded documentary project explores humanity’s potential to be resilient amidst extreme drought conditions and unprecedented ecological change through the warp and weft of empowering stories of struggle and transformation.</p>"
     }
+  ],
+  "maps": [
+    {
+      "people": [
+        {
+          "name": "Maria Ramos, Teacher",
+          "image": "maria-ramos"
+        },
+        {
+          "name": "Ferro Jimenez de La Rosa, President of Huamantanga",
+          "image": "ferro-jimenez"
+        },
+        {
+          "name": "Huamantanga community members",
+          "image": "huamantanga-community"
+        },
+        {
+          "name": "Huamantanga elders",
+          "image": "huamantanga-elders"
+        }
+      ],
+      "data": [
+        {
+          "name": "location",
+          "data": "Huamantanga District, Rio Chillon Watershed, Peru"
+        },
+        {
+          "name": "elevation",
+          "data": "11,129 ft"
+        },
+        {
+          "name": "issue",
+          "data": "Severe drought in summer months"
+        },
+        {
+          "name": "technique",
+          "data": "Restoring an ancient Incan canal system that re-directs water during the winter from ravines to more permeable soils, replenishing ground water."
+        }
+      ]
+    },
+    {
+      "people": [
+        {
+          "name": "Luis Delgado, Community organizer",
+          "image": "luis-delgado"
+        },
+        {
+          "name": "Sandra Delgado, Community organizer",
+          "image": "sandra-delgado"
+        },
+        {
+          "name": "Dr. Percy Nuñez, Indigenous botanist, PhD",
+          "image": "percy-nunez"
+        }
+      ],
+      "data": [
+        {
+          "name": "location",
+          "data": "Acopia District, Four Circuit Lakes Watershed, Peru"
+        },
+        {
+          "name": "elevation",
+          "data": "12,188 ft"
+        },
+        {
+          "name": "issue",
+          "data": "Water pollution, dry infertile soils"
+        },
+        {
+          "name": "technique",
+          "data": "Restore native trees and plants &amp; clean up large amounts of trash (6 tons) <br><br> 1 million tree goal, 23,320 planted"
+        }
+      ]
+    }
   ]
 }

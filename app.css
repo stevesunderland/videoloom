@@ -11,6 +11,23 @@ body,
 button {
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
+.info {
+  position: absolute;
+  font-size: 1.5em;
+  right: 0.7em;
+  top: 0.6em;
+  border: 2px solid white;
+  border-radius: 100%;
+  color: white;
+  padding: 0.3em 0.83em;
+  z-index: 99999;
+  opacity: 0.5;
+  transition: all 0.5s;
+  cursor: crosshair;
+}
+.info:hover {
+  opacity: 1;
+}
 .logo {
   position: absolute;
   z-index: 999999;
@@ -470,7 +487,6 @@ button:active {
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: gold;
   opacity: 0;
   transition: all 5s;
   z-index: 999;
@@ -481,14 +497,191 @@ button:active {
   display: block;
   opacity: 1;
 }
-#bio .inner {
+#bio .background {
   position: absolute;
+  height: 34vh;
+  background-size: cover;
+  background-position: center center;
+  left: 0;
+  right: 0;
+  top: -100vh;
+  opacity: 0;
+  transition: top 5s, opacity 10s;
+}
+.showBio #bio .background {
+  opacity: 1;
+}
+.showBio #bio .background:nth-child(1) {
+  top: 0;
+}
+.showBio #bio .background:nth-child(2) {
+  top: 33vh;
+}
+.showBio #bio .background:nth-child(3) {
+  top: 66vh;
+}
+#bio .globe {
+  position: absolute;
+  width: 150px;
+  right: 75px;
   top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  z-index: 9999;
+  opacity: 0;
+  transition: all 5s;
+}
+.showBio #bio .globe {
+  transform: translateY(-50%) rotate(0deg);
+  opacity: 1;
+}
+#bio .globe img {
   width: 100%;
-  transform: translateY(-50%);
-  color: #fff;
+  display: block;
+  margin: 0 auto;
+}
+#bio .section {
+  position: absolute;
+  z-index: 999;
+  transition: all 5s;
+  width: 100%;
+  margin-top: 80px;
+  position: relative;
+  background-color: transparent;
+  padding: 1em 0;
+  transform: translateY(100%);
+}
+#bio .section .inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+}
+.showBio #bio .section {
+  background-color: #000;
+  transform: translateY(0);
+}
+#bio .section.active {
+  opacity: 1;
+}
+#bio .section .map {
+  flex: 1;
+  position: relative;
+}
+#bio .section .map img {
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+#bio .section .map .bar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1em;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: all 10s;
+}
+#bio .section .map .bar:nth-child(2) {
+  left: 100%;
+}
+.showBio #bio .section .map .bar:nth-child(2) {
+  left: 10%;
+}
+#bio .section .map .bar:nth-child(3) {
+  left: 0%;
+}
+.showBio #bio .section .map .bar:nth-child(3) {
+  left: 30%;
+}
+#bio .section .map .bar:nth-child(4),
+#bio .section .map .bar:nth-child(5) {
+  bottom: auto;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: 1em;
+  top: 100%;
+}
+.showBio #bio .section .map .bar:nth-child(4),
+.showBio #bio .section .map .bar:nth-child(5) {
+  top: 30%;
+}
+#bio .section .map .bar:nth-child(5) {
+  top: 0%;
+}
+.showBio #bio .section .map .bar:nth-child(5) {
+  top: 65%;
+}
+#bio .section:nth-child(3) {
+  margin-top: 300px;
+}
+.showBio #bio .section:nth-child(3) {
+  margin-top: 18px;
+}
+#bio .section:nth-child(3) .map .bar:nth-child(2) {
+  left: 100%;
+}
+.showBio #bio .section:nth-child(3) .map .bar:nth-child(2) {
+  left: 62%;
+}
+#bio .section:nth-child(3) .map .bar:nth-child(3) {
+  left: 0%;
+}
+.showBio #bio .section:nth-child(3) .map .bar:nth-child(3) {
+  left: 82%;
+}
+#bio .section:nth-child(3) .map .bar:nth-child(4),
+#bio .section:nth-child(3) .map .bar:nth-child(5) {
+  bottom: auto;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: 1em;
+  top: 100%;
+}
+.showBio #bio .section:nth-child(3) .map .bar:nth-child(4),
+.showBio #bio .section:nth-child(3) .map .bar:nth-child(5) {
+  top: 50%;
+}
+#bio .section:nth-child(3) .map .bar:nth-child(5) {
+  top: 0%;
+}
+.showBio #bio .section:nth-child(3) .map .bar:nth-child(5) {
+  top: 85%;
+}
+#bio .section .left,
+#bio .section .right {
+  color: white;
+  background-color: black;
+  padding: 0 1em;
+  width: 150px;
+  transition: all 5s;
+  opacity: 0;
+}
+.showBio #bio .section .left,
+.showBio #bio .section .right {
+  opacity: 1;
+}
+#bio .section .left .image,
+#bio .section .right .image {
+  height: 3em;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+#bio .section .left p,
+#bio .section .right p {
+  font-size: .7em;
+  line-height: 1.25;
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
+}
+#bio .section .left h6,
+#bio .section .right h6 {
+  margin-top: 0;
+  margin-bottom: 0;
   text-transform: uppercase;
-  letter-spacing: .2em;
-  text-align: center;
+  color: gray;
+}
+#bio .section .right {
+  right: 0;
 }
 /*# sourceMappingURL=app.css.map */

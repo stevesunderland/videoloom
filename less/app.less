@@ -12,6 +12,26 @@ body, html {
 body, button {
 		font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
+.info {
+	  position: absolute;
+	  font-size: 1.5em;
+	  right: 0.7em;
+	  top: 0.6em;
+	  border: 2px solid white;
+	  border-radius: 100%;
+	  color: white;
+	  padding: 0.3em 0.83em;
+	  z-index: 99999;
+
+	  opacity: 0.5;
+	  transition: all 0.5s;
+
+	  cursor: crosshair;
+
+	  &:hover {
+	  	opacity: 1;
+	  }
+}
 .logo {
 	position: absolute;
 	z-index: 999999;
@@ -515,7 +535,7 @@ button {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background-color: gold;
+	// background-color: gold;
 	opacity: 0;
 	transition: all 5s;
 	z-index: 999;
@@ -526,14 +546,262 @@ button {
 		display: block;
 		opacity: 1;
 	}
-	.inner {
+
+	.background {
 		position: absolute;
+		height: 34vh;
+		background-size: cover;
+		background-position: center center;
+
+		left: 0; right: 0;
+
+		top: -100vh;
+		opacity: 0;
+
+		transition: top 5s, opacity 10s;
+
+		.showBio & {
+			opacity: 1;
+			&:nth-child(1) {
+				top: 0;
+			}
+
+			&:nth-child(2) {
+				top: 33vh;
+			}
+
+			&:nth-child(3) {
+				top: 66vh;
+			}
+		}
+
+	}
+	// .inner {
+	// 	position: absolute;
+	// 	top: 50%;
+	// 	width: 100%;
+	// 	transform: translateY(-50%);
+	// 	color: #fff;
+	// 	text-transform: uppercase;
+	// 	letter-spacing: .2em;
+	// 	text-align: center;
+	// }
+	.globe {
+		position: absolute;
+		width: 150px;
+		right: 75px;
 		top: 50%;
+		transform: translateY(-50%) rotate(180deg);
+		z-index: 9999;
+		opacity: 0;
+
+		transition: all 5s;
+
+		.showBio & {
+			transform: translateY(-50%) rotate(0deg);
+			opacity: 1;
+		}
+
+		img {
+			width: 100%;
+			display: block;
+			margin: 0 auto;
+		}
+	}
+
+	.section {
+		position: absolute;
+		z-index: 999;
+		// height: 100%;
+		transition: all 5s;
+	
+
 		width: 100%;
-		transform: translateY(-50%);
-		color: #fff;
-		text-transform: uppercase;
-		letter-spacing: .2em;
-		text-align: center;
+		margin-top: 80px;
+		position: relative;
+		// background-color: fade(black, 50%);
+		background-color: transparent;
+		padding: 1em 0;
+		// padding-top: 1em;
+		// padding-bottom: 1em;
+		
+		transform: translateY(100%);
+
+		.inner {
+			max-width: 1100px;
+			margin: 0 auto;
+			display: flex;
+		}
+
+		.showBio & {
+			background-color: #000;
+			transform: translateY(0);
+			
+		}
+
+		&.active {
+			opacity: 1;
+		}
+
+		// &:nth-child(3) {
+		// 	&.active {
+		// 		margin-top: -30%;
+		// 	}
+		// }
+
+		.map {
+			flex: 1;
+			// height: 100%;
+			// padding: 1em;
+			// padding: 0 150px;
+			position: relative;
+
+			img {
+				// padding: 1em;
+				// height: 100%;
+				width: 100%;
+				margin: 0 auto;
+				display: block;
+			}
+
+			.bar {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				width: 1em;
+				background-color: fade(black, 20%);
+
+				transition: all 10s;
+
+				&:nth-child(2) {
+					left: 100%;
+
+					.showBio & {
+						left: 10%;
+					}
+				}
+				&:nth-child(3) {
+					left: 0%;
+
+					.showBio & {
+						left: 30%;
+					}
+				}
+				&:nth-child(4),
+				&:nth-child(5) {
+					bottom: auto;
+					left: 0;
+					right: 0;
+					width: auto;
+					height: 1em;
+					top: 100%;
+
+					.showBio & {
+						top: 30%;
+					}
+				}
+				&:nth-child(5) {
+					top: 0%;
+
+					.showBio & {
+						top: 65%;
+					}
+				}
+			}
+			
+		}
+
+		&:nth-child(3) {
+			margin-top: 300px;
+
+			.showBio & {
+				margin-top: 18px;
+			}
+
+			.left, .right {
+				// bottom: 0;
+				// top: auto;
+			}
+			.map {
+				.bar {
+
+					&:nth-child(2) {
+						left: 100%;
+
+						.showBio & {
+							left: 62%;
+						}
+					}
+					&:nth-child(3) {
+						left: 0%;
+
+						.showBio & {
+							left: 82%;
+						}
+					}
+					&:nth-child(4),
+					&:nth-child(5) {
+						bottom: auto;
+						left: 0;
+						right: 0;
+						width: auto;
+						height: 1em;
+						top: 100%;
+
+						.showBio & {
+							top: 50%;
+						}
+					}
+					&:nth-child(5) {
+						top: 0%;
+
+						.showBio & {
+							top: 85%;
+						}
+					}
+				}
+			}
+		}
+		.left, .right {
+			// flex: 1;
+			color: white;
+			background-color: black;
+			padding: 0 1em;
+			width: 150px;
+			// position: absolute;
+			// display: inline;
+			// top: 0;
+			// bottom: 0;
+			transition: all 5s;
+			opacity: 0;
+
+			.showBio & {
+				opacity: 1;
+			}
+
+			.image {
+				height: 3em;
+				width: 100%;
+				background-size: cover;
+				background-position: center center;
+			}
+
+			p {
+				font-size: .7em;
+				line-height: 1.25;
+				margin-top: 0.5em;
+				margin-bottom: 1.5em;
+			}
+
+			h6 {
+				margin-top: 0;
+				margin-bottom: 0;
+				text-transform: uppercase;
+				color: gray;
+			}
+		}
+		.right {
+			right: 0;
+		}
 	}
 }

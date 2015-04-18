@@ -9,6 +9,7 @@ html
 		.logo
 			for i in [1,2,3]
 				div.bar
+		.info i
 		//- loom
 		each i, loomindex in loom
 			div.header(class=i.name)
@@ -48,8 +49,28 @@ html
 			button(class='introbutton') Skip Intro
 		//- Bio Page
 		div#bio
-			.inner
-				p [Bio Page Coming Soon]
+			.globe
+				img(src='img/map/globe.png')
+			each map, index in maps
+				.section
+					.inner
+						.left
+							for person in map.people
+								.person
+									.image(style='background-image: url(img/map/'+person.image+'.jpg)')
+									p= person.name
+						.map
+							img(src='img/map/map-'+(index+1)+'.jpg')
+							for i in [1,2,3,4]
+								.bar
+						.right
+							for item in map.data
+								.item
+									h6= item.name
+									p!= item.data
+			.background-container
+				for i in ['embodiment-2','human-3','underground-2']
+					.background(style='background-image: url(img/haiku/'+i+'.jpg)')
 		//- video
 		div#video
 		//- script
