@@ -9,7 +9,7 @@ html
 		.logo
 			for i in [1,2,3]
 				div.bar
-		.info i
+		.infobutton i
 		//- loom
 		each i, loomindex in loom
 			div.header(class=i.name)
@@ -71,6 +71,18 @@ html
 			.background-container
 				for i in ['embodiment-2','human-3','underground-2']
 					.background(style='background-image: url(img/haiku/'+i+'.jpg)')
+
+		#info
+			.info-container
+				.info
+					include ./partials/info.jade
+				.credits.artist
+					h3 Filmmaker, Artist, Activist and Designer
+					p Kelly Skye is a multimedia artist, filmmaker and ecologist. Her work explores expanded forms of documentary film  and photography. Through these mediums she works  to co-create visions of ecological resilience that are  based on ideas of systems thinking and embedded  interdependence. Her guiding intention is to support  community-based efforts to restore and protect  life-sustaining ecologies. 
+					a(href='http://kelly-skye.com', target='_blank') kelly-skye.com
+				.credits
+					include ./partials/credits.jade
+
 		//- video
 		div#video
 		//- script

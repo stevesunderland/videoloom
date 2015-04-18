@@ -11,22 +11,25 @@ body,
 button {
   font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
-.info {
+.infobutton {
   position: absolute;
-  font-size: 1.5em;
-  right: 0.7em;
-  top: 0.6em;
+  font-size: 1.25em;
+  right: 1em;
+  top: 1em;
   border: 2px solid white;
   border-radius: 100%;
   color: white;
-  padding: 0.3em 0.83em;
-  z-index: 99999;
+  padding: 0.3em 0.82em;
+  z-index: 999999;
   opacity: 0.5;
   transition: all 0.5s;
   cursor: crosshair;
 }
-.info:hover {
+.infobutton:hover {
   opacity: 1;
+}
+.showIntro .infobutton {
+  opacity: 0;
 }
 .logo {
   position: absolute;
@@ -683,5 +686,75 @@ button:active {
 }
 #bio .section .right {
   right: 0;
+}
+#info {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  z-index: 99999;
+  top: 100vh;
+  opacity: 0;
+  transition: all 5s;
+  padding-top: 80px;
+}
+.showInfo #info {
+  top: 0;
+  opacity: 1;
+}
+#info .info-container {
+  display: flex;
+  padding: 0 150px;
+}
+#info .info-container .info {
+  flex: 1;
+  padding: 1em;
+}
+#info .info-container .info h3 {
+  font-weight: normal;
+  color: #fff;
+  margin-top: 0;
+}
+#info .info-container .info p {
+  color: #ccc;
+  font-size: 0.8em;
+  line-height: 1.5;
+}
+#info .info-container .credits {
+  width: 250px;
+  padding: 0 1em;
+}
+#info .info-container .credits.artist {
+  padding-top: 1em;
+}
+#info .info-container .credits.artist p {
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+#info .info-container .credits:not(.artist) p {
+  margin-bottom: 0;
+}
+#info .info-container .credits p {
+  font-size: .7em;
+  line-height: 1.25;
+  margin-top: 0.5em;
+  margin-bottom: 1.5em;
+  color: white;
+}
+#info .info-container .credits a {
+  color: gold;
+}
+#info .info-container .credits h3 {
+  margin-top: 0;
+  font-weight: normal;
+  color: #fff;
+}
+#info .info-container .credits h6 {
+  margin-top: 2em;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: gray;
 }
 /*# sourceMappingURL=app.css.map */

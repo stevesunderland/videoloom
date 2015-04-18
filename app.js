@@ -14,9 +14,9 @@ var timeout;
 var App = {
 	init: function(){
 		console.info('App.init');
-		// App.showIntro();
+		App.showIntro();
 		// App.openHaiku('landscape');
-		App.showBio();
+		// App.showBio();
 
 		$.each( $('.grid'), function(){
 			var row = $(this).data('row');
@@ -28,11 +28,20 @@ var App = {
 		App.getVideos();
 		App.loadClips();
 		App.logo();
+		App.info();
+	},
+	info: function(){
+		$('.infobutton').on('click', function(){
+			$('body').toggleClass('showInfo');
+		});
 	},
 	logo: function(){
 		$('.logo').on('click', function(){
 			
-			if ( $('body').hasClass('openHaiku') ) { // if haiku is open
+
+			if ( $('body').hasClass('showInfo') ) {
+				$('body').removeClass('showInfo');
+			} else if ( $('body').hasClass('openHaiku') ) { // if haiku is open
 				console.info('close haiku');
 
 				$('body').removeClass('openHaiku');

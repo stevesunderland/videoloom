@@ -12,16 +12,16 @@ body, html {
 body, button {
 		font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
-.info {
+.infobutton {
 	  position: absolute;
-	  font-size: 1.5em;
-	  right: 0.7em;
-	  top: 0.6em;
+	  font-size: 1.25em;
+	  right: 1em;
+	  top: 1em;
 	  border: 2px solid white;
 	  border-radius: 100%;
 	  color: white;
-	  padding: 0.3em 0.83em;
-	  z-index: 99999;
+	  padding: 0.3em 0.82em;
+	  z-index: 999999;
 
 	  opacity: 0.5;
 	  transition: all 0.5s;
@@ -30,6 +30,10 @@ body, button {
 
 	  &:hover {
 	  	opacity: 1;
+	  }
+
+	  .showIntro & {
+	  	opacity: 0;
 	  }
 }
 .logo {
@@ -804,4 +808,91 @@ button {
 			right: 0;
 		}
 	}
+}
+
+#info {
+	position: absolute;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+	background-color: #000;
+	z-index: 99999;
+
+	top: 100vh;
+	opacity: 0;
+	transition: all 5s;
+
+	padding-top: 80px;
+
+	.showInfo & {
+		top: 0;
+		opacity: 1;
+	}
+
+	.info-container {
+		display: flex;
+		padding: 0 150px;
+
+		.info {
+			flex: 1;
+			padding: 1em;
+
+			h3 {
+				font-weight: normal;
+				color: #fff;
+				margin-top: 0;
+			}
+
+			p {
+				color: #ccc;
+				font-size: 0.8em;
+				line-height: 1.5;
+				// max-width: 42em;
+			}
+		}
+	
+		.credits {
+			width: 250px;
+			padding: 0 1em;
+
+			&.artist {
+				padding-top: 1em;
+				p {
+					font-size: 0.9em;
+					line-height: 1.5;
+				}
+			}
+
+			&:not(.artist) {
+				p {
+					margin-bottom: 0;
+				}
+			}
+
+			p {
+				font-size: .7em;
+				line-height: 1.25;
+				margin-top: 0.5em;
+				margin-bottom: 1.5em;
+				color: white;
+			}
+
+			a {
+				color: gold;
+			}
+
+			h3 {
+				margin-top: 0;
+				font-weight: normal;
+				color: #fff;
+			}
+
+			h6 {
+				margin-top: 2em;
+				margin-bottom: 0;
+				text-transform: uppercase;
+				color: gray;
+			}
+		}
+	}
+
 }
