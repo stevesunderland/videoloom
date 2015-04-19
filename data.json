@@ -223,28 +223,14 @@
   ],
   "intro": [
     {
-      "text": "<p>Water.<ins>2.5</ins> Water is everything.<ins>2.5</ins></p><p>Feel it running through your veins.<ins>1</ins> For a brief second<ins>1</ins> imagine thirst.<ins>2.5</ins></p><p>The world is beginning to dry,<ins>1</ins> it is time to act.<ins>2.5</ins></p>"
+      "text": "<p>Water.<ins>2.5</ins> Water is everything.<ins>2.5</ins></p><p>Feel it running through your veins.<ins>1</ins> For a brief second<ins>1</ins> imagine thirst.<ins>2.5</ins></p><p>The world is beginning to dry,<ins>1</ins> it is time to act.<ins>1.5</ins></p>"
       
     },
     {
-      "text": "<p><i>Resilience</i> is a new media documentary that weaves community-based watershed restoration stories together.</p><p>Beginning with two watersheds in the remote Peruvian Andes, this project is an ongoing effort. </p><p>The <i>Resilience</i> interactive interface acts as a loom that creates a fabric out of a collection of short films (2 minutes or less) and photographic haiku.</p><p>This content is organized along different conceptual threads and the viewer can weave these threads together to create different patterns in the story fabric.</p><p>These patterns can shift and adapt, akin to a living system.</p><p>As unique story patterns emerge, previously unseen connections can be made.<ins>2.5</ins></p>"
-    
+      "text": "<section><h3>Re &bull; sil &bull; ience</h3><ul><li>The power or ability to return to the original form, position, etc., after being bent, compressed, or stretched; elasticity.</li><li>Ability to recover readily from illness, depression, adversity, or the like; buoyancy.</li></ul></section>"
     },
     {
-      "text": "<section><h3>Lo&bull;om</h3><ul><li>A loom is a device used to weave cloth. The basic purpose of any loom is to hold the warp threads under tension to facilitate the interweaving of the weft threads.</li><li>The precise shape of the loom and its mechanics may vary, but the basic function is the same.<ins>2.5</ins></li></ul></section>"
-    },
-    {
-      "text": "<section><h3>Hai&bull;ku</h3><ul><li>A form of Zen poetry, characterized by being three lines: two contrasting ideas with a connecting point.</li><li>Haiku is brief and compressed, it suggests rather than explains.<ins>2.5</ins></li></ul></section>"
-
-    },
-    {
-      "text": "<p>Each conceptual thread is tied to a haiku taken from the cautionary and empowering statements made by community activists from the high Andes. </p><p>The haiku are visualized with photographs taken in each community’s context and woven together with threads of archival images of glaciers in the Peruvian Andes taken in the 1920’s.</p><p>The quotes and photographs come together create a patterned fabric that invites contemplation of the topic and its relationship to ecological resilience.<ins>2.5</ins></p>"
-    },
-    {
-      "text": "<section><h3>Eco&bull;lo&bull;gy</h3><ul><li>A branch of science concerned with the interrelationship of organisms and their physical surroundings.</li><li>The totality or pattern of relations between organisms and their environment.<ins>2.5</ins></li></ul></section>"
-    },
-    {
-      "text": "<p>This expanded documentary project explores humanity’s potential to be resilient amidst extreme drought conditions and unprecedented ecological change through the warp and weft of empowering stories of struggle and transformation.</p>"
+      "text": "<p><i>Resilience</i> is a new media documentary that weaves together community-based watershed restoration stories from the remote <i>Peruvian Andes</i>. The <i>Resilience</i> interface acts as a <b>loom</b> that creates a fabric out of a collection of short <b>films</b> (2 minutes or less)</p><p>This content is organized along different <i>conceptual threads</i> which can be woven together to create unique patterns in the story fabric. Each conceptual thread is tied to a photographic haiku. <i>Haiku</i> is a form of Zen poetry characterized by three lines, two contrasting ideas and a connecting point. </p><p>The Resilience haiku are written with <i>cautionary</i> and <i>empowering</i> statements made by activists in the high Andes. They are visualized with photographs taken in each community’s context and woven together with threads of archival images of glaciers and snow pack in the Peruvian Andes taken in the 1920’s.</p><p>The quotes and photographs come together to create a patterned <i>fabric</i> that invites contemplation of the topic and its relationship to ecological resilience.</p><p>This expanded documentary project explores humanity’s potential to be resilient amidst extreme drought conditions and unprecedented ecological change through the warp and weft of empowering stories of struggle and transformation.</p><button id='introbutton'>Begin Weaving</button>"
     }
   ],
   "maps": [

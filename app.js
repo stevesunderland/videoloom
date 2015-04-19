@@ -146,18 +146,17 @@ var App = {
 
 			var currentSlide = $(slides[counter]);
 			var textLength = currentSlide.text().length;
-			var duration = textLength * 50;
-			
-			if ( counter == slides.length) {
-				console.info('this could be the end');
-				$('#intro button').click();
-			}
+			var duration = textLength * 40;
 
 			currentSlide.fadeIn(5000, function(){
 				if ( counter == 0 ) {
 					type();
 					return false;
 				}
+
+				if ( counter == slides.length-1) {
+					return false;
+				}	
 				
 				slideshow = setTimeout(function(){
 					$('#video > video').animate({ opacity: 0 }, 2000, function(){
@@ -177,7 +176,7 @@ var App = {
 			console.info('type');
 
 			$(slides[counter]).t({
-				speed: 50,
+				speed: 40,
 				delay: counter == 0 ? 5 : 1,
 				blink: 500,
 				caret: false,
