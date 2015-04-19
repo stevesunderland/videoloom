@@ -23,7 +23,7 @@
         },
         {
         	"name": "biodiversity",
-        	"clips": [24,37],
+        	"clips": [24,37,15],
           "haiku": [
             {
               "text": "We used to have 400 different species of trees in the valley of Cusco,\nmany parts of the Andes were evergreen, but now we only have a few dozen tree species left.",
@@ -118,7 +118,7 @@
         },
         {
         	"name": "assemblage",
-        	"clips": [15,3,28,21,30,35],
+        	"clips": [3,28,21,30,35],
           "haiku": [
             {
               "text": "500 years ago we Incans had a strong clash, a cultural clash.\nOur indigenous culture almost vanished completely. Since then we\nhave been overshadowed by becoming more and more indifferent to nature.",
