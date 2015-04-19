@@ -23,7 +23,7 @@
         },
         {
         	"name": "biodiversity",
-        	"clips": [24,29,31,37],
+        	"clips": [24,37],
           "haiku": [
             {
               "text": "We used to have 400 different species of trees in the valley of Cusco,\nmany parts of the Andes were evergreen, but now we only have a few dozen tree species left.",
@@ -41,7 +41,7 @@
         },
         {
         	"name": "human",
-        	"clips":[1,7,42],
+        	"clips":[1,7,29],
           "haiku": [
             {
               "text": "Young people go to Lima. Why this migration? They leave due to lack of opportunities.\nOne of the reasons is the lack of water. Now we can’t have big farming areas and even cattle is greatly reduced.",
@@ -59,7 +59,7 @@
         },
         {
         	"name": "landscape",
-        	"clips": [2,12,26,27,14],
+        	"clips": [2,12,26,27,14,42],
           "haiku": [
             {
               "text": "Forests have been pillaged.\nThe mountains are losing their perennial snow.\nIn 20 years we will have conflicts over the water.",
@@ -100,7 +100,7 @@
         },
         {
         	"name": "embodiment",
-        	"clips": [20,10,41,33],
+        	"clips": [20,10,33],
           "haiku": [
             {
               "text": "Then plastic technology and plastic culture came overnight.\nNowadays, everything that we buy is in a plastic bag and the water is being poisoned with trash.",
