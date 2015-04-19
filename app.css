@@ -160,7 +160,7 @@ button {
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
-  max-width: 42em;
+  max-width: 54em;
   margin: 0 auto;
   display: none;
 }
@@ -173,8 +173,8 @@ button {
 }
 #intro p,
 #intro ul {
-  font-size: 0.9em;
-  line-height: 1.75;
+  font-size: 1.5em;
+  line-height: 1.5;
 }
 #intro ul {
   margin-bottom: 0;
@@ -186,6 +186,9 @@ button {
 #intro h3 {
   margin-top: 0;
   margin-bottom: 1em;
+}
+#intro h3 {
+  font-size: 2em;
 }
 #intro button {
   position: absolute;

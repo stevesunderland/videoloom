@@ -180,17 +180,23 @@ var App = {
 
 			// });
 
+			
+			if ( counter == slides.length) {
+				console.info('this could be the end');
+				$('#intro button').click();
+			}
+
 			currentSlide.fadeIn(5000, function(){
 				if ( counter == 0 ) {
 					type();
 					return false;
 				}
 
-				if ( counter == slides.length) {
-					$('#intro button').click();
-				}
 				
 				slideshow = setTimeout(function(){
+					$('#video > video').animate({ opacity: 0 }, 2000, function(){
+						$(this).attr('src', 'videos/clip-'+clips[counter+1]+'.mp4').animate({ opacity: 1 }, 2000);
+					});
 					currentSlide.fadeOut(5000, function(){
 						counter++;
 						slide();
