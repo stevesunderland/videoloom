@@ -129,9 +129,11 @@ var App = {
 			$('#intro .slide').t('pause');
 			$('#intro').removeClass('active').addClass('leave');
 
-			$('#video > video').fadeOut(1000, function(){
+
+			$('#video, #video > video').fadeOut(1000, function(){
 				$('#video > video').remove();
 			});
+				// $('#video').fadeOut(0);
 			App.createLoom();
 		});
 		App.typewriter();
@@ -187,6 +189,8 @@ var App = {
 		console.info('App.createLoom');
 
 		$('body').removeClass('showIntro').addClass('createLoom');
+
+
 
 		App.createThread();
 	},
@@ -247,6 +251,14 @@ var App = {
 
 					App.createGrid();
 					App.drawHeaders();
+
+					setTimeout(function(){
+						$('body').addClass('showInstructions');
+
+						setTimeout(function(){
+							$('body').removeClass('showInstructions');
+						}, 1000*10);
+					}, 1000*10);
 				}
 			});
 		});

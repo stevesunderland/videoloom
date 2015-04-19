@@ -12,6 +12,34 @@ body, html {
 body, button {
 		font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
+
+#instructions {
+	position: absolute;
+	top: 50%; left: 50%;
+	transform: translate(-50%, -50%);
+
+	z-index: 999999;
+
+	background-color: fade(black, 90%);
+	background-color: black;
+	padding: 4em;
+	text-align: center;
+	// display: none;
+	opacity: 0;
+
+	transition: opacity 2.5s;
+
+	.showInstructions & {
+		// display: block;
+		opacity: 1;
+	}
+
+	p {
+		color: #ddd;
+		font-size: 0.9em;
+		line-height: 1.5;
+	}
+}
 .infobutton {
 	  position: absolute;
 	  font-size: 1.25em;

@@ -1,7 +1,7 @@
 html
 	head
 		title Resilience
-		link(rel='stylesheet' href='app.css?v=0.1')
+		link(rel='stylesheet' href='app.css?v=0.2')
 		link(rel="icon" type="image/png" href="icon.png" sizes="192x192")
 		link(rel="apple-touch-icon" href="icon.png" sizes="180x180")
 	body
@@ -10,6 +10,11 @@ html
 			for i in [1,2,3]
 				div.bar
 		.infobutton i
+		//- instructions
+		#instructions
+			p Click on the loom to choose four conceptual threads to weave together into a unique story pattern
+			//- p &bull;
+			p Click on a concept to view its associated woven photographic haiku
 		//- loom
 		each i, loomindex in loom
 			div.header(class=i.name)
@@ -90,4 +95,4 @@ html
 		script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js')
 		script(src='//f.vimeocdn.com/js/froogaloop2.min.js')
 		script(src='js/t.js')
-		script(src='app.js?v=0.1')
+		script(src='app.js?v=0.2')
