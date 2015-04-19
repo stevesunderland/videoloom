@@ -41,7 +41,7 @@
         },
         {
         	"name": "human",
-        	"clips":[1,7,44,42],
+        	"clips":[1,7,42],
           "haiku": [
             {
               "text": "Young people go to Lima. Why this migration? They leave due to lack of opportunities.\nOne of the reasons is the lack of water. Now we can’t have big farming areas and even cattle is greatly reduced.",
@@ -82,7 +82,7 @@
       "threads": [
         {
         	"name": "adaptability",
-        	"clips": [6,19,38,43],
+        	"clips": [6,19,38],
           "haiku": [
             {
               "text": "I will tell you about my community. From 1960 to 1980, there was too\nmuch winter and plenty of water, then from1990 on we had a drought that\nlasted for 3 years. After that, the winters left and they never were the same again.",
