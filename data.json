@@ -223,7 +223,7 @@
   ],
   "intro": [
     {
-      "text": "<p>Water.<ins>2.5</ins> Water is everything.<ins>2.5</ins></p><p>Feel it running through your veins. For a brief second imagine thirst.<ins>2.5</ins></p><p>The world is beginning to dry, it is time to act.<ins>2.5</ins></p>"
+      "text": "<p>Water.<ins>2.5</ins> Water is everything.<ins>2.5</ins></p><p>Feel it running through your veins.<ins>1</ins> For a brief second imagine thirst.<ins>2.5</ins></p><p>The world is beginning to dry,<ins>1</ins> it is time to act.<ins>2.5</ins></p>"
       
     },
     {

@@ -25,8 +25,9 @@ var App = {
 
 			$(this).data('verse', combined);
 		});
-		// App.getVideos();
-		// App.loadClips();
+		App.getVideos();
+		App.loadClips();
+
 		App.logo();
 		App.info();
 	},
@@ -88,9 +89,12 @@ var App = {
 			var clips = $(this).data('clips');
 			App.shuffle(clips);
 
+			var video = $(this).find('video');
 			// $(this).find('video').get(0).defaultPlaybackRate = 0.1;
-			$(this).find('video').append('<source src="videos/clip-'+clips[0]+'.mp4" type="video/mp4"></source>');
-			// $(this).find('video').get(0).playbackRate = 0.5;
+			video.append('<source src="videos/clip-'+clips[0]+'.mp4" type="video/mp4"></source>');
+			// video.get(0).playbackRate = 0.2;
+			// video.get(0).play();
+
 		});
 	},
 	shuffle: function(array) {
@@ -141,9 +145,11 @@ var App = {
 	typewriter: function(){
 		var slides = $('#intro .slide');
 
-		$(slides).each(function(){
-			$(this).css('height', $(this).height() );
-		});
+		// $(slides).each(function(){
+		// 	$(this).css('height', $(this).height() );
+		// });
+
+		$(slides[0]).css('height', $(slides[0]).height() );
 
 		var counter = 0;
 		var clips = [1,3,6,7,10,12,14,16,17,19,20,22,25];
@@ -151,6 +157,53 @@ var App = {
 		clips = clips.slice(0,slides.length);
 
 		$('#video').html('<video loop="loop" autoplay="autoplay" muted><source src="videos/clip-'+clips[counter]+'.mp4" type="video/mp4"></source></video>').find('video').hide().fadeIn(2000);
+
+
+		var slideshow;
+		
+		function slide() {
+			console.info('slide');
+			console.info('counter: '+counter);
+
+			console.info('slides.length: '+slides.length);
+
+			var currentSlide = $(slides[counter]);
+			// var previousSlide = $(slides[counter-1]);
+
+			var textLength = currentSlide.text().length;
+			console.info('textLength: '+textLength);
+
+			// var duration = 1000 * 5;
+			var duration = textLength * 50;
+
+			// previousSlide.fadeOut(5000, function(){
+
+			// });
+
+			currentSlide.fadeIn(5000, function(){
+				if ( counter == 0 ) {
+					type();
+					return false;
+				}
+
+				if ( counter == slides.length) {
+					$('#intro button').click();
+				}
+				
+				slideshow = setTimeout(function(){
+					currentSlide.fadeOut(5000, function(){
+						counter++;
+						slide();
+					});
+				}, duration); // calculate this duration from character count
+
+			});
+		}
+
+		slide();
+
+
+
 
 		function type() {
 			console.info('type');
@@ -162,29 +215,34 @@ var App = {
 				caret: false,
 				fin: function(el) {
 
-				 	if ( counter == slides.length-1 ) {
-				 		$('#intro button').fadeOut(1000, function(){
-				 			$(this).appendTo($(el)).hide().text('Begin Weaving').css({ bottom: 0 }).fadeIn(1000);
-				 		});
-				 		return false;
-				 	}
-
-				 	$('#video > video').animate({ opacity: 0 }, 1000, function(){
-				 		$(this).attr('src', 'videos/clip-'+clips[counter+1]+'.mp4').animate({ opacity: 1 }, 1000);
-				 	});
-					$(el).animate({ height: 0, opacity: 0 }, 1000, function(){
+					$(el).fadeOut(5000, function(){
 						counter++;
-						type();
+						slide();
 					});
+
+				 // 	if ( counter == slides.length-1 ) {
+				 // 		$('#intro button').fadeOut(1000, function(){
+				 // 			$(this).appendTo($(el)).hide().text('Begin Weaving').css({ bottom: 0 }).fadeIn(1000);
+				 // 		});
+				 // 		return false;
+				 // 	}
+
+				 // 	$('#video > video').animate({ opacity: 0 }, 1000, function(){
+				 // 		$(this).attr('src', 'videos/clip-'+clips[counter+1]+'.mp4').animate({ opacity: 1 }, 1000);
+				 // 	});
+					// $(el).animate({ height: 0, opacity: 0 }, 1000, function(){
+						// counter++;
+						// slide();
+					// });
 				}
 			});
 		 }
-		 type();
+		 // type();
 	},
 	createLoom: function(){
 
-		App.getVideos();
-		App.loadClips();
+		// App.getVideos();
+		// App.loadClips();
 
 		console.info('App.createLoom');
 
@@ -299,7 +357,7 @@ var App = {
 
 				$('[data-column="'+column+'"], [data-row="'+row+'"]').not('.grid').find('video').not('.selected').each(function(){
 					var video = $(this).get(0);
-					// video.playbackRate = 0.1;
+					// video.playbackRate = 0.2;
 					video.pause();
 				});
 			})
@@ -318,7 +376,7 @@ var App = {
 
 					$('[data-column="'+column+'"], [data-row="'+row+'"]').not('.grid').find('video').not('.selected').each(function(){
 						var video = $(this).get(0);
-						// video.playbackRate = 0.1;
+						// video.playbackRate = 0.2;
 						video.pause();
 					});
 

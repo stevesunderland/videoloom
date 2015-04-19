@@ -164,6 +164,10 @@ button {
   margin: 0 auto;
   display: none;
 }
+#intro .slide ins,
+#intro .slide del {
+  display: none;
+}
 #intro .slide:nth-child(1) {
   display: block;
 }
