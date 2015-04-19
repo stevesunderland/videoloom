@@ -332,16 +332,16 @@ button:active {
 .animateLoom .thread {
   transform: translateY(100vh) !important;
 }
-.thread[data-column]:nth-child(3) {
+.thread[data-column]:nth-child(5) {
   transition-delay: 0.5s;
 }
-.thread[data-column]:nth-child(4) {
+.thread[data-column]:nth-child(6) {
   transition-delay: 1s;
 }
-.thread[data-column]:nth-child(5) {
+.thread[data-column]:nth-child(7) {
   transition-delay: 1.5s;
 }
-.thread[data-column]:nth-child(6) {
+.thread[data-column]:nth-child(8) {
   transition-delay: 2s;
 }
 .thread.selected,
@@ -458,7 +458,6 @@ button:active {
 .haiku .slide .panel.image {
   left: calc(218px);
   transform: translateX(-100vw);
-  transition-delay: 0.5s;
   opacity: 0;
   z-index: 9;
 }
@@ -470,7 +469,6 @@ button:active {
   padding: 4em;
   padding-left: calc(300px);
   transform: translateY(-100vh);
-  transition-delay: 1s;
   opacity: 0;
   z-index: 999;
 }
