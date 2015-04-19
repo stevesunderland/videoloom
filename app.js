@@ -88,9 +88,9 @@ var App = {
 			var clips = $(this).data('clips');
 			App.shuffle(clips);
 
-			$(this).find('video').get(0).defaultPlaybackRate = 0.1;
+			// $(this).find('video').get(0).defaultPlaybackRate = 0.1;
 			$(this).find('video').append('<source src="videos/clip-'+clips[0]+'.mp4" type="video/mp4"></source>');
-			$(this).find('video').get(0).playbackRate = 0.1;
+			// $(this).find('video').get(0).playbackRate = 0.5;
 		});
 	},
 	shuffle: function(array) {
@@ -239,7 +239,7 @@ var App = {
 
 			var myindex = isRow ? $('thread[data-row]').length - row : $('.thread[data-column]').length - column;
 
-			$(this).css(style).delay(500*myindex).animate({
+			$(this).css(style).delay(500*index).animate({
 				opacity: 0.5,
 				top: isColumn ? 0 : top,
 				left: isColumn ? left : 0,
@@ -254,12 +254,13 @@ var App = {
 
 					setTimeout(function(){
 						$('body').addClass('showInstructions');
-
 						setTimeout(function(){
 							$('body').removeClass('showInstructions');
-							$('#instructions').remove();
+							setTimeout(function(){
+								$('#instructions').remove();
+							}, 1000*5);
 						}, 1000*10);
-					}, 1000*10);
+					}, 1000*5);
 				}
 			});
 		});
@@ -285,20 +286,22 @@ var App = {
 				$('[data-column="'+column+'"]').not('.grid').addClass('hover')
 					.find('video');
 
-				// $('[data-column="'+column+'"], [data-row="'+row+'"]').not('.grid').find('video').not('.selected').each(function(){
-				// 	var video = $(this).get(0);
-				// 	video.playbackRate = 0.5;
-				// });
+				$('[data-column="'+column+'"], [data-row="'+row+'"]').not('.grid').find('video').not('.selected').each(function(){
+					var video = $(this).get(0);
+					// video.playbackRate = 0.5;
+					video.play();
+				});
 			}, function(){
 				$('[data-row="'+row+'"]').not('.grid').removeClass('hover')
 					.find('video').not('.selected');
 				$('[data-column="'+column+'"]').not('.grid').removeClass('hover')
 					.find('video').not('.selected');
 
-				// $('[data-column="'+column+'"], [data-row="'+row+'"]').not('.grid').find('video').not('.selected').each(function(){
-				// 	var video = $(this).get(0);
-				// 	video.playbackRate = 0.1;
-				// });
+				$('[data-column="'+column+'"], [data-row="'+row+'"]').not('.grid').find('video').not('.selected').each(function(){
+					var video = $(this).get(0);
+					// video.playbackRate = 0.1;
+					video.pause();
+				});
 			})
 			.on('click touchstart', function(event){
 				event.stopPropagation();
@@ -313,10 +316,11 @@ var App = {
 					$('[data-row="'+row+'"]').not('.grid').removeClass('selected')
 						.find('video').not('.selected').removeClass('selected');
 
-					// $('[data-column="'+column+'"], [data-row="'+row+'"]').not('.grid').find('video').not('.selected').each(function(){
-					// 	var video = $(this).get(0);
-					// 	video.playbackRate = 0.1;
-					// });
+					$('[data-column="'+column+'"], [data-row="'+row+'"]').not('.grid').find('video').not('.selected').each(function(){
+						var video = $(this).get(0);
+						// video.playbackRate = 0.1;
+						video.pause();
+					});
 
 				} else {
 					$('.grid[data-column="'+column+'"]').removeClass('selected');
@@ -327,10 +331,11 @@ var App = {
 					$('[data-row="'+row+'"]').not('.grid').addClass('selected')
 						.find('video').addClass('selected');
 
-					// $('[data-column="'+column+'"], [data-row="'+row+'"]').not('.grid').find('video').each(function(){
-					// 	var video = $(this).get(0);
-					// 	video.playbackRate = 1;
-					// });
+					$('[data-column="'+column+'"], [data-row="'+row+'"]').not('.grid').find('video').each(function(){
+						var video = $(this).get(0);
+						// video.playbackRate = 1;
+						video.play();
+					});
 
 					$(this).addClass('selected');
 				}
