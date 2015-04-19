@@ -6,31 +6,25 @@ body, html {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-
 	background-color: #333;
 }
 body, button {
-		font-family: 'Helvetica Neue', Helvetica, sans-serif;
+	font-family: 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 #instructions {
 	position: absolute;
 	top: 50%; left: 50%;
 	transform: translate(-50%, -50%);
-
 	z-index: 999999;
-
 	background-color: fade(black, 90%);
 	background-color: black;
 	padding: 4em;
 	text-align: center;
-	// display: none;
 	opacity: 0;
-
 	transition: opacity 2.5s;
 
 	.showInstructions & {
-		// display: block;
 		opacity: 1;
 	}
 
@@ -50,16 +44,13 @@ body, button {
 	  color: white;
 	  padding: 0.3em 0.82em;
 	  z-index: 999999;
-
 	  opacity: 0.5;
 	  transition: all 0.5s;
-
 	  cursor: crosshair;
 
 	  &:hover {
 	  	opacity: 1;
 	  }
-
 	  .showIntro & {
 	  	opacity: 0;
 	  }
@@ -330,7 +321,6 @@ body, button {
 		}
 	}
 }
-
 button {
 	border: 2px solid #fff;
 	padding: 1em;
@@ -516,7 +506,6 @@ button {
 			&.image {
 				left: calc(200px + @gutter);
 				transform: translateX(-100vw);
-				// transition-delay: 0.5s;
 				opacity: 0;
 				z-index: 9;
 			}
@@ -528,7 +517,6 @@ button {
 				padding: 4em;
 				padding-left: calc(300px);
 				transform: translateY(-100vh);
-				// transition-delay: 1s;
 				opacity: 0;
 				z-index: 999;
 
@@ -575,7 +563,6 @@ button {
 	left: 0;
 	bottom: 0;
 	right: 0;
-	// background-color: gold;
 	opacity: 0;
 	transition: all 5s;
 	z-index: 999;
@@ -592,12 +579,9 @@ button {
 		height: 34vh;
 		background-size: cover;
 		background-position: center center;
-
 		left: 0; right: 0;
-
 		top: -200vh;
 		opacity: 0;
-
 		transition: top 5s, opacity 10s;
 
 		.showBio & {
@@ -605,27 +589,14 @@ button {
 			&:nth-child(1) {
 				top: 0;
 			}
-
 			&:nth-child(2) {
 				top: 33vh;
 			}
-
 			&:nth-child(3) {
 				top: 66vh;
 			}
 		}
-
 	}
-	// .inner {
-	// 	position: absolute;
-	// 	top: 50%;
-	// 	width: 100%;
-	// 	transform: translateY(-50%);
-	// 	color: #fff;
-	// 	text-transform: uppercase;
-	// 	letter-spacing: .2em;
-	// 	text-align: center;
-	// }
 	.globe {
 		position: absolute;
 		width: 150px;
@@ -634,37 +605,27 @@ button {
 		transform: translateY(-50%) rotate(180deg);
 		z-index: 9999;
 		opacity: 0;
-
 		transition: all 5s;
 
 		.showBio & {
 			transform: translateY(-50%) rotate(0deg);
 			opacity: 1;
 		}
-
 		img {
 			width: 100%;
 			display: block;
 			margin: 0 auto;
 		}
 	}
-
 	.section {
 		position: absolute;
 		z-index: 999;
-		// height: 100%;
 		transition: all 5s;
-	
-
 		width: 100%;
 		margin-top: 80px;
 		position: relative;
-		// background-color: fade(black, 50%);
 		background-color: transparent;
 		padding: 1em 0;
-		// padding-top: 1em;
-		// padding-bottom: 1em;
-		
 		transform: translateY(100%);
 
 		.inner {
@@ -672,33 +633,19 @@ button {
 			margin: 0 auto;
 			display: flex;
 		}
-
 		.showBio & {
 			background-color: #000;
 			transform: translateY(0);
 			
 		}
-
 		&.active {
 			opacity: 1;
 		}
-
-		// &:nth-child(3) {
-		// 	&.active {
-		// 		margin-top: -30%;
-		// 	}
-		// }
-
 		.map {
 			flex: 1;
-			// height: 100%;
-			// padding: 1em;
-			// padding: 0 150px;
 			position: relative;
 
 			img {
-				// padding: 1em;
-				// height: 100%;
 				width: 100%;
 				margin: 0 auto;
 				display: block;
@@ -748,19 +695,12 @@ button {
 					}
 				}
 			}
-			
 		}
-
 		&:nth-child(3) {
 			margin-top: 300px;
 
 			.showBio & {
 				margin-top: 18px;
-			}
-
-			.left, .right {
-				// bottom: 0;
-				// top: auto;
 			}
 			.map {
 				.bar {
@@ -803,15 +743,10 @@ button {
 			}
 		}
 		.left, .right {
-			// flex: 1;
 			color: white;
 			background-color: black;
 			padding: 0 1em;
 			width: 150px;
-			// position: absolute;
-			// display: inline;
-			// top: 0;
-			// bottom: 0;
 			transition: all 5s;
 			opacity: 0;
 
@@ -845,12 +780,10 @@ button {
 		}
 	}
 }
-
 #info {
 	position: absolute;
 	top: 0; bottom: 0;
 	left: 0; right: 0;
-	// background-color: #000;
 	z-index: 99999;
 
 	background-image: url(../img/haiku/embodiment-2.jpg);
@@ -885,10 +818,8 @@ button {
 				color: #ccc;
 				font-size: 0.8em;
 				line-height: 1.5;
-				// max-width: 42em;
 			}
 		}
-	
 		.credits {
 			width: 250px;
 			padding: 80px 1em 0;
@@ -898,19 +829,14 @@ button {
 			.showInfo & {
 				transform: translateY(0);
 			}
-
 			&.artist {
-				// padding-top: 1em;
 				background-color: #000;
-
-
 
 				p {
 					font-size: 0.9em;
 					line-height: 1.5;
 				}
 			}
-
 			&:not(.artist) {
 				transition-delay: 2.5s;
 
@@ -918,7 +844,6 @@ button {
 					margin-bottom: 0;
 				}
 			}
-
 			p {
 				font-size: .7em;
 				line-height: 1.25;
@@ -926,17 +851,14 @@ button {
 				margin-bottom: 1.5em;
 				color: white;
 			}
-
 			a {
 				color: gold;
 			}
-
 			h3 {
 				margin-top: 0;
 				font-weight: normal;
 				color: #fff;
 			}
-
 			h6 {
 				margin-top: 2em;
 				margin-bottom: 0;

@@ -15,8 +15,6 @@ var App = {
 	init: function(){
 		console.info('App.init');
 		App.showIntro();
-		// App.openHaiku('landscape');
-		// App.showBio();
 
 		$.each( $('.grid'), function(){
 			var row = $(this).data('row');
@@ -38,7 +36,6 @@ var App = {
 	},
 	logo: function(){
 		$('.logo').on('click', function(){
-			
 
 			if ( $('body').hasClass('showInfo') ) {
 				$('body').removeClass('showInfo');
@@ -76,25 +73,15 @@ var App = {
 			$('#bio .section').not(this).removeClass('active');
 			$(this).toggleClass('active');
 		});
-
-
 	},
 	loadClips: function(){
-		// var clips = [1,2,3,4,5,6,7,10,11,12,13,14,15,16,17,18,19,20,21,22,24,25];
-		// var clips = [1,3,6,7,10,12,14,16,17,19,20,22,25];
-		// App.shuffle(clips);
-		// clips = clips.slice(0,8);
 
 		$('.thread').each(function(index){
+			var video = $(this).find('video');
 			var clips = $(this).data('clips');
 			App.shuffle(clips);
 
-			var video = $(this).find('video');
-			// $(this).find('video').get(0).defaultPlaybackRate = 0.1;
 			video.append('<source src="videos/clip-'+clips[0]+'.mp4" type="video/mp4"></source>');
-			// video.get(0).playbackRate = 0.2;
-			// video.get(0).play();
-
 		});
 	},
 	shuffle: function(array) {
@@ -137,49 +124,29 @@ var App = {
 			$('#video, #video > video').fadeOut(1000, function(){
 				$('#video > video').remove();
 			});
-				// $('#video').fadeOut(0);
+
 			App.createLoom();
 		});
 		App.typewriter();
 	},
 	typewriter: function(){
 		var slides = $('#intro .slide');
-
-		// $(slides).each(function(){
-		// 	$(this).css('height', $(this).height() );
-		// });
+		var counter = 0;
+		var slideshow;
+		var clips = [1,3,6,7,10,12,14,16,17,19,20,22,25];
 
 		$(slides[0]).css('height', $(slides[0]).height() );
 
-		var counter = 0;
-		var clips = [1,3,6,7,10,12,14,16,17,19,20,22,25];
 		App.shuffle(clips);
 		clips = clips.slice(0,slides.length);
 
 		$('#video').html('<video loop="loop" autoplay="autoplay" muted><source src="videos/clip-'+clips[counter]+'.mp4" type="video/mp4"></source></video>').find('video').hide().fadeIn(2000);
 
-
-		var slideshow;
-		
 		function slide() {
-			console.info('slide');
-			console.info('counter: '+counter);
-
-			console.info('slides.length: '+slides.length);
 
 			var currentSlide = $(slides[counter]);
-			// var previousSlide = $(slides[counter-1]);
-
 			var textLength = currentSlide.text().length;
-			console.info('textLength: '+textLength);
-
-			// var duration = 1000 * 5;
 			var duration = textLength * 50;
-
-			// previousSlide.fadeOut(5000, function(){
-
-			// });
-
 			
 			if ( counter == slides.length) {
 				console.info('this could be the end');
@@ -191,7 +158,6 @@ var App = {
 					type();
 					return false;
 				}
-
 				
 				slideshow = setTimeout(function(){
 					$('#video > video').animate({ opacity: 0 }, 2000, function(){
@@ -201,15 +167,11 @@ var App = {
 						counter++;
 						slide();
 					});
-				}, duration); // calculate this duration from character count
-
+				}, duration);
 			});
 		}
 
 		slide();
-
-
-
 
 		function type() {
 			console.info('type');
@@ -220,41 +182,21 @@ var App = {
 				blink: 500,
 				caret: false,
 				fin: function(el) {
-
 					$(el).fadeOut(5000, function(){
 						counter++;
 						slide();
 					});
-
-				 // 	if ( counter == slides.length-1 ) {
-				 // 		$('#intro button').fadeOut(1000, function(){
-				 // 			$(this).appendTo($(el)).hide().text('Begin Weaving').css({ bottom: 0 }).fadeIn(1000);
-				 // 		});
-				 // 		return false;
-				 // 	}
-
-				 // 	$('#video > video').animate({ opacity: 0 }, 1000, function(){
-				 // 		$(this).attr('src', 'videos/clip-'+clips[counter+1]+'.mp4').animate({ opacity: 1 }, 1000);
-				 // 	});
-					// $(el).animate({ height: 0, opacity: 0 }, 1000, function(){
-						// counter++;
-						// slide();
-					// });
 				}
 			});
 		 }
-		 // type();
 	},
 	createLoom: function(){
+		console.info('App.createLoom');
 
 		// App.getVideos();
 		// App.loadClips();
 
-		console.info('App.createLoom');
-
 		$('body').removeClass('showIntro').addClass('createLoom');
-
-
 
 		App.createThread();
 	},
@@ -457,9 +399,6 @@ var App = {
 			slidecounter ++;
 			if ( slidecounter == slides.length ) slidecounter = 0;
 		}, speed);
-	},
-	closeHaiku: function(){
-		//
 	},
 	getSequence: function(){
 		console.info('App.getSequence');

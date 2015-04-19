@@ -13,7 +13,6 @@ html
 		//- instructions
 		#instructions
 			p Click on the loom to choose four conceptual threads to weave together into a unique story pattern
-			//- p &bull;
 			p Click on a concept to view its associated woven photographic haiku
 		//- loom
 		each i, loomindex in loom
@@ -76,7 +75,6 @@ html
 			.background-container
 				for i in ['embodiment-2','human-3','underground-2']
 					.background(style='background-image: url(img/haiku/'+i+'.jpg)')
-
 		#info
 			.info-container
 				.info
@@ -88,7 +86,6 @@ html
 						a(href='http://kelly-skye.com', target='_blank') kelly-skye.com
 				.credits
 					include ./partials/credits.jade
-
 		//- video
 		div#video
 		//- script
