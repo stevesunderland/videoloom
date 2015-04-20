@@ -433,12 +433,16 @@ var App = {
 
 			$('#video').fadeOut('slow', function(){
 				$('#video>iframe').remove();
-	
-				var video = $('<iframe src="https://player.vimeo.com/video/'+sequence[videocounter]+'?autoplay=1&color=999&title=0&byline=0&portrait=0&api=1&player_id=videoframe'+videocounter+'" width="500" height="281" id="videoframe'+videocounter+'"></iframe>');
-				var player = new Froogaloop( $('#videoframe'+videocounter)[0] );
 
+				var video = $('<iframe src="https://player.vimeo.com/video/'+sequence[videocounter]+'?autoplay=1&color=999&title=0&byline=0&portrait=0&api=1&player_id=videoframe'+videocounter+'" width="500" height="281" id="videoframe'+videocounter+'"></iframe>');
+				
 				video.appendTo(overlay);
 				overlay.fadeIn();
+				
+				var player = new Froogaloop( $('#videoframe'+videocounter)[0] );
+
+				console.info('player');
+				console.info(player);
 
 				player.addEvent('ready', function(){
 					console.info('player.ready');
