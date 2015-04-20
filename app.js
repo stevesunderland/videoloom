@@ -250,8 +250,8 @@ var App = {
 			var myindex = isRow ? $('thread[data-row]').length - row : $('.thread[data-column]').length - column;
 
 			$(this).find('video').css({
-				marginLeft: isColumn ? left : 0,
-				marginTop: isColumn ? 0 : top
+				marginLeft: isColumn ? -left : 0,
+				marginTop: isColumn ? 0 : -top + 80
 			})
 
 			$(this).css(style).delay(500*index).animate({
