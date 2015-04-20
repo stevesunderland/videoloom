@@ -733,6 +733,7 @@ button:active {
   top: 100vh;
   opacity: 0;
   transition: all 5s;
+  overflow: auto;
 }
 .showInfo #info {
   top: 0;
