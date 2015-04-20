@@ -148,6 +148,10 @@ var App = {
 			var textLength = currentSlide.text().length;
 			var duration = textLength * 40;
 
+			if ( counter == slides.length-1) {
+				$('.introbutton').css('opacity', 0);
+			}	
+
 			currentSlide.fadeIn(5000, function(){
 				if ( counter == 0 ) {
 					type();
@@ -155,6 +159,7 @@ var App = {
 				}
 
 				if ( counter == slides.length-1) {
+					// $('.introbutton').fadeOut('slow');
 					return false;
 				}	
 				

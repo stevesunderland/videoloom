@@ -12,8 +12,7 @@ html
 		.infobutton i
 		//- instructions
 		#instructions
-			p Click on the loom to choose four conceptual threads to weave together into a unique story pattern
-			p Click on a concept to view its associated woven photographic haiku
+			p To begin weaving click on the loom and choose four conceptual threads <br> Click on the concepts to view the related photographic haiku
 		//- loom
 		each i, loomindex in loom
 			div.header(class=i.name)
@@ -50,7 +49,7 @@ html
 		div#intro
 			for item in intro
 				.slide !{item.text}
-			//- button(class='introbutton') Skip Intro
+			button(class='introbutton') Skip Intro
 		//- Bio Page
 		div#bio
 			.globe

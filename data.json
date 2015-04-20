@@ -41,7 +41,7 @@
         },
         {
         	"name": "human",
-        	"clips":[1,7,29],
+        	"clips":[1,7],
           "haiku": [
             {
               "text": "Young people go to Lima. Why this migration? They leave due to lack of opportunities.\nOne of the reasons is the lack of water. Now we can’t have big farming areas and even cattle is greatly reduced.",
@@ -59,7 +59,7 @@
         },
         {
         	"name": "landscape",
-        	"clips": [2,12,26,27,14,42],
+        	"clips": [2,12,26,27,14],
           "haiku": [
             {
               "text": "Forests have been pillaged.\nThe mountains are losing their perennial snow.\nIn 20 years we will have conflicts over the water.",
@@ -230,7 +230,7 @@
       "text": "<section><h3>Re &bull; sil &bull; ience</h3><ul><li>The power or ability to return to the original form, position, etc., after being bent, compressed, or stretched; elasticity.</li><li>Ability to recover readily from illness, depression, adversity, or the like; buoyancy.</li></ul></section>"
     },
     {
-      "text": "<p><i>Resilience</i> is a new media documentary that weaves together community-based watershed restoration stories from the remote <i>Peruvian Andes</i>. The <i>Resilience</i> interface acts as a <b>loom</b> that creates a fabric out of a collection of short <b>films</b> (2 minutes or less)</p><p>This content is organized along different <i>conceptual threads</i> which can be woven together to create unique patterns in the story fabric. Each conceptual thread is tied to a photographic haiku. <i>Haiku</i> is a form of Zen poetry characterized by three lines, two contrasting ideas and a connecting point. </p><p>The Resilience haiku are written with <i>cautionary</i> and <i>empowering</i> statements made by activists in the high Andes. They are visualized with photographs taken in each community’s context and woven together with threads of archival images of glaciers and snow pack in the Peruvian Andes taken in the 1920’s.</p><p>The quotes and photographs come together to create a patterned <i>fabric</i> that invites contemplation of the topic and its relationship to ecological resilience.</p><p>This expanded documentary project explores humanity’s potential to be resilient amidst extreme drought conditions and unprecedented ecological change through the warp and weft of empowering stories of struggle and transformation.</p><button id='introbutton'>Begin Weaving</button>"
+      "text": "<section><p><i>Resilience</i> is a new media documentary that weaves together community-based watershed restoration stories from the remote <i>Peruvian Andes</i>. The <i>Resilience</i> interface acts as a <b>loom</b> that creates a fabric out of a collection of short <b>films</b> (2 minutes or less).</p><p>This content is organized along different <i>conceptual threads</i> which can be woven together to create unique patterns in the story fabric. Each conceptual thread is tied to a photographic haiku. <i>Haiku</i> is a form of Zen poetry characterized by three lines, two contrasting ideas and a connecting point. </p><p>The Resilience haiku are written with <i>cautionary</i> and <i>empowering</i> statements made by activists in the high Andes. They are visualized with photographs taken in each community’s context and woven together with threads of archival images of glaciers and snow pack in the Peruvian Andes taken in the 1920’s.</p><p>The quotes and photographs come together to create a patterned <i>fabric</i> that invites contemplation of the topic and its relationship to ecological resilience.</p><p>This expanded documentary project explores humanity’s potential to be resilient amidst extreme drought conditions and unprecedented ecological change through the warp and weft of empowering stories of struggle and transformation.</p><button id='introbutton'>Begin Weaving</button></section>"
     }
   ],
   "maps": [

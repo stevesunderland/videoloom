@@ -17,9 +17,9 @@ body, button {
 	top: 50%; left: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 999999;
-	background-color: fade(black, 90%);
-	background-color: black;
-	padding: 4em;
+	background-color: fade(black, 70%);
+	// background-color: black;
+	padding: 2em;
 	text-align: center;
 	opacity: 0;
 	transition: opacity 2.5s;
@@ -187,8 +187,8 @@ body, button {
 		}
 	}
 	p, ul {
-		font-size: 1.25em;
-		line-height: 1.4;
+		font-size: 1.2em;
+		line-height: 1.5;
 	}
 	ul {
 		margin-bottom: 0;
@@ -204,23 +204,28 @@ body, button {
 		font-size: 2em;
 	}
 	button {
-		// position: absolute;
-		// z-index: 99999;
-		// bottom: 2em;
-		// left: 50%;
-		// transform: translateX(-50%);
+		
 		opacity: 0;
 		transition: opacity 5s ease 5s;
 
 		display: block;
 		margin: 3em auto 0;
 
+		&.introbutton {
+			position: absolute;
+			z-index: 9999999;
+			bottom: 2em;
+			left: 50%;
+			transform: translateX(-50%);
+			margin: 0;
+		}
+
 	}
 	section {
-		height: 100%;
-		color: gold;
+		// height: 100%;
+		// color: gold;
 		background-color: fade(black, 70%);
-		padding: 4em;
+		padding: 2em;
 	}
 	&.active button {
 		opacity: 0.5;

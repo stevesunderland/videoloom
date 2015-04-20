@@ -17,9 +17,8 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 999999;
-  background-color: rgba(0, 0, 0, 0.9);
-  background-color: black;
-  padding: 4em;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2em;
   text-align: center;
   opacity: 0;
   transition: opacity 2.5s;
@@ -173,8 +172,8 @@ button {
 }
 #intro p,
 #intro ul {
-  font-size: 1.25em;
-  line-height: 1.4;
+  font-size: 1.2em;
+  line-height: 1.5;
 }
 #intro ul {
   margin-bottom: 0;
@@ -196,11 +195,17 @@ button {
   display: block;
   margin: 3em auto 0;
 }
+#intro button.introbutton {
+  position: absolute;
+  z-index: 9999999;
+  bottom: 2em;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+}
 #intro section {
-  height: 100%;
-  color: gold;
   background-color: rgba(0, 0, 0, 0.7);
-  padding: 4em;
+  padding: 2em;
 }
 #intro.active button {
   opacity: 0.5;
