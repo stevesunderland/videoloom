@@ -341,16 +341,16 @@ button:active {
 .animateLoom .thread {
   transform: translateY(100vh) !important;
 }
-.thread[data-column]:nth-child(5) {
+.thread[data-column]:nth-child(8) {
   transition-delay: 0.5s;
 }
-.thread[data-column]:nth-child(6) {
+.thread[data-column]:nth-child(7) {
   transition-delay: 1s;
 }
-.thread[data-column]:nth-child(7) {
+.thread[data-column]:nth-child(6) {
   transition-delay: 1.5s;
 }
-.thread[data-column]:nth-child(8) {
+.thread[data-column]:nth-child(5) {
   transition-delay: 2s;
 }
 .thread.selected,
@@ -555,15 +555,15 @@ button:active {
 #bio .globe {
   position: absolute;
   width: 150px;
-  right: 75px;
+  right: 2em;
   top: 50%;
-  transform: translateY(-50%) rotate(180deg);
+  transform: translateY(-80%) rotate(180deg);
   z-index: 9999;
   opacity: 0;
   transition: all 5s;
 }
 .showBio #bio .globe {
-  transform: translateY(-50%) rotate(0deg);
+  transform: translateY(-80%) rotate(0deg);
   opacity: 1;
 }
 #bio .globe img {
@@ -712,6 +712,10 @@ button:active {
   margin-bottom: 0;
   text-transform: uppercase;
   color: gray;
+}
+#bio .section .left .person:last-child p,
+#bio .section .right .person:last-child p {
+  margin-bottom: 0;
 }
 #bio .section .right {
   right: 0;
