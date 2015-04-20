@@ -82,7 +82,7 @@
       "threads": [
         {
         	"name": "adaptability",
-        	"clips": [6,19,38],
+        	"clips": [2,25,17,45,22,32],
           "haiku": [
             {
               "text": "I will tell you about my community. From 1960 to 1980, there was too\nmuch winter and plenty of water, then from1990 on we had a drought that\nlasted for 3 years. After that, the winters left and they never were the same again.",
@@ -136,7 +136,7 @@
         },
         {
         	"name": "connectivity",
-        	"clips": [2,25,17,45,22,32],
+        	"clips": [6,19,38],
           "haiku": [
             {
               "text": "What we need to learn now is to coexist with nature.\nWe now have extreme environmental pollution and global warming.\nThis is a warning, and it has been foreseen that water is going to extinguish.",
