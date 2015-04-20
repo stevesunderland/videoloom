@@ -441,9 +441,6 @@ var App = {
 				
 				var player = new Froogaloop( $('#videoframe'+videocounter)[0] );
 
-				console.info('player');
-				console.info(player);
-
 				player.addEvent('ready', function(){
 					console.info('player.ready');
 					player.addEvent('finish', onFinish);
