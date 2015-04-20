@@ -249,6 +249,11 @@ var App = {
 
 			var myindex = isRow ? $('thread[data-row]').length - row : $('.thread[data-column]').length - column;
 
+			$(this).find('video').css({
+				marginLeft: isColumn ? left : 0,
+				marginTop: isColumn ? 0 : top
+			})
+
 			$(this).css(style).delay(500*index).animate({
 				opacity: 0.5,
 				top: isColumn ? 0 : top,
