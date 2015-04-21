@@ -116,7 +116,8 @@ var App = {
 		$('body').addClass('showIntro');
 		$('#intro').addClass('active');
 
-		$(document).on('click', '#introbutton', function(){
+		$(document).on('click', '#introbutton, .introbutton', function(){
+			console.info('introbutton click');
 			$('#intro .slide').t('pause');
 			$('#intro').removeClass('active').addClass('leave');
 
