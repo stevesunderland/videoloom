@@ -192,8 +192,8 @@ button {
 #intro button {
   opacity: 0;
   transition: opacity 5s ease 5s;
-  display: block;
-  margin: 3em auto 0;
+  display: inline-block;
+  margin: 2em 0.5em 0;
 }
 #intro button.introbutton {
   position: absolute;
@@ -502,7 +502,6 @@ button:active {
 #video iframe {
   height: 100%;
   width: 100%;
-  pointer-events: none;
   border: 0;
 }
 #video video {
@@ -557,13 +556,13 @@ button:active {
   width: 150px;
   right: 2em;
   top: 50%;
-  transform: translateY(-80%) rotate(180deg);
+  transform: translateY(-50%) rotate(180deg);
   z-index: 9999;
   opacity: 0;
   transition: all 5s;
 }
 .showBio #bio .globe {
-  transform: translateY(-80%) rotate(0deg);
+  transform: translateY(-50%) rotate(0deg);
   opacity: 1;
 }
 #bio .globe img {
@@ -678,6 +677,10 @@ button:active {
 }
 .showBio #bio .section:nth-child(3) .map .bar:nth-child(5) {
   top: 85%;
+}
+#bio .section:nth-child(3) .right,
+#bio .section:nth-child(3) .left {
+  padding-top: 4em;
 }
 #bio .section .left,
 #bio .section .right {

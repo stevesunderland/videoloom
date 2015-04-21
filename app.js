@@ -23,8 +23,8 @@ var App = {
 
 			$(this).data('verse', combined);
 		});
-		App.getVideos();
-		App.loadClips();
+		// App.getVideos();
+		// App.loadClips();
 
 		App.logo();
 		App.info();
@@ -116,7 +116,7 @@ var App = {
 		$('body').addClass('showIntro');
 		$('#intro').addClass('active');
 
-		$(document).on('click', '#intro button', function(){
+		$(document).on('click', '#introbutton', function(){
 			$('#intro .slide').t('pause');
 			$('#intro').removeClass('active').addClass('leave');
 
@@ -127,7 +127,44 @@ var App = {
 
 			App.createLoom();
 		});
+
+		$(document).on('click', '#videobutton', function(){
+			App.showIntroVideo();
+		});
+
 		App.typewriter();
+	},
+	showIntroVideo: function(){
+		console.info('App.showIntroVideo');
+
+		$('body').addClass('showIntroVideo');
+		// $('#video').html('<video id="introvideo" autoplay="autoplay"><source src="videos/intro-video.mp4" type="video/mp4"></source></video>').find('video').hide().fadeIn(2000);
+		
+		$('#video, .slide').fadeOut(1000, function(){
+			$('#video>*, #intro').remove();
+
+			$('#video').html('<iframe src="https://player.vimeo.com/video/125541304?autoplay=1&color=999&title=0&byline=0&portrait=0&api=1&player_id=introvideo" width="500" height="281" id="introvideo"></iframe>').fadeIn('slow');
+			
+			var player = new Froogaloop( $('#introvideo')[0] );
+
+			player.addEvent('ready', function(){
+				console.info('player.ready');
+				player.addEvent('finish', onFinish);
+			});
+
+			function onFinish(){
+				console.info('intro video finished');
+				$('#intro').removeClass('active').addClass('leave');
+
+
+				$('#video').fadeOut(1000, function(){
+					$('#video > iframe').remove();
+				});
+
+				App.createLoom();
+			}
+		});
+
 	},
 	typewriter: function(){
 		var slides = $('#intro .slide');
@@ -140,35 +177,42 @@ var App = {
 		App.shuffle(clips);
 		clips = clips.slice(0,slides.length);
 
-		$('#video').html('<video loop="loop" autoplay="autoplay"><source src="videos/intro-text-video.mp4" type="video/mp4"></source></video>').find('video').hide().fadeIn(2000);
+		$('#video').html('<video autoplay="autoplay"><source src="videos/intro-text-video.mp4" type="video/mp4"></source></video>').find('video').hide().fadeIn(2000);
 
 		function slide() {
 
+			console.info('slide');
+
 			var currentSlide = $(slides[counter]);
 			var textLength = currentSlide.text().length;
-			var duration = textLength * 40;
+			var duration = textLength * 10;
 
-			if ( counter == slides.length-1) {
-				$('.introbutton').css('opacity', 0);
-			}	
 
 			currentSlide.fadeIn(5000, function(){
+				console.info('ccurrentSlide.fadeIn');
 				if ( counter == 0 ) {
 					type();
 					return false;
 				}
 
 				if ( counter == slides.length-1) {
+					console.info('counter == slides.length-1 ');
 					// $('.introbutton').fadeOut('slow');
 					return false;
 				}	
 				
 				slideshow = setTimeout(function(){
+					console.info('slideshow = setTimeout');
 					// $('#video > video').animate({ opacity: 0 }, 2000, function(){
+					if ( counter == slides.length-2) {
+						console.info('counter == slides.length-1');
+						$('.introbutton').css('opacity', 0);
+					}	
 						// $(this).attr('src', 'videos/clip-'+clips[counter+1]+'.mp4').animate({ opacity: 1 }, 2000);
 					// });
 
 					currentSlide.fadeOut(5000, function(){
+						console.info('currentSlide.fadeOut');
 						counter++;
 						slide();
 					});
@@ -198,8 +242,8 @@ var App = {
 	createLoom: function(){
 		console.info('App.createLoom');
 
-		// App.getVideos();
-		// App.loadClips();
+		App.getVideos();
+		App.loadClips();
 
 		$('body').removeClass('showIntro').addClass('createLoom');
 

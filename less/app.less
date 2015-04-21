@@ -204,8 +204,8 @@ body, button {
 	button {
 		opacity: 0;
 		transition: opacity 5s ease 5s;
-		display: block;
-		margin: 3em auto 0;
+		display: inline-block;
+		margin: 2em 0.5em 0;
 
 		&.introbutton {
 			position: absolute;
@@ -547,7 +547,7 @@ button {
 	iframe {
 		height: 100%;
 		width: 100%;
-		pointer-events: none;
+		// pointer-events: none;
 		border: 0;
 	}
 	video {
@@ -604,13 +604,13 @@ button {
 		width: 150px;
 		right: 2em;
 		top: 50%;
-		transform: translateY(-80%) rotate(180deg);
+		transform: translateY(-50%) rotate(180deg);
 		z-index: 9999;
 		opacity: 0;
 		transition: all 5s;
 
 		.showBio & {
-			transform: translateY(-80%) rotate(0deg);
+			transform: translateY(-50%) rotate(0deg);
 			opacity: 1;
 		}
 		img {
@@ -742,6 +742,10 @@ button {
 						}
 					}
 				}
+			}
+			.right, .left {
+				padding-top: 4em;
+
 			}
 		}
 		.left, .right {
