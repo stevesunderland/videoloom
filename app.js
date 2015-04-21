@@ -140,7 +140,7 @@ var App = {
 		App.shuffle(clips);
 		clips = clips.slice(0,slides.length);
 
-		$('#video').html('<video loop="loop" autoplay="autoplay" muted><source src="videos/clip-'+clips[counter]+'.mp4" type="video/mp4"></source></video>').find('video').hide().fadeIn(2000);
+		$('#video').html('<video loop="loop" autoplay="autoplay"><source src="videos/intro-text-video.mp4" type="video/mp4"></source></video>').find('video').hide().fadeIn(2000);
 
 		function slide() {
 
