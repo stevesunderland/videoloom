@@ -165,7 +165,7 @@ var App = {
 				
 				slideshow = setTimeout(function(){
 					$('#video > video').animate({ opacity: 0 }, 2000, function(){
-						$(this).attr('src', 'videos/clip-'+clips[counter+1]+'.mp4').animate({ opacity: 1 }, 2000);
+						// $(this).attr('src', 'videos/clip-'+clips[counter+1]+'.mp4').animate({ opacity: 1 }, 2000);
 					});
 					currentSlide.fadeOut(5000, function(){
 						counter++;
