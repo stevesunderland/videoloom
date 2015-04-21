@@ -752,6 +752,8 @@ button:active {
   font-weight: normal;
   color: #fff;
   margin-top: 0;
+  letter-spacing: 0.05em;
+  margin-bottom: 0;
 }
 #info .info-container .info p {
   color: #ccc;
@@ -801,5 +803,22 @@ button:active {
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
   letter-spacing: .1em;
+}
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+  background-color: transparent;
+  -webkit-border-radius: 0;
+}
+::-webkit-scrollbar:hover {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+  background: white;
 }
 /*# sourceMappingURL=app.css.map */

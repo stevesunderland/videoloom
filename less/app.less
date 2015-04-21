@@ -820,6 +820,8 @@ button {
 				font-weight: normal;
 				color: #fff;
 				margin-top: 0;
+				letter-spacing: 0.05em;
+				margin-bottom: 0;
 			}
 
 			p {
@@ -876,5 +878,23 @@ button {
 			}
 		}
 	}
+}
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    background-color: transparent;
+    -webkit-border-radius: 0;
+}
+::-webkit-scrollbar:hover {
+    width: 10px;
+}
 
+::-webkit-scrollbar-thumb {
+    background: fade(white, 50%);
+    -webkit-border-radius: 0;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active  {
+    background: white;
 }
