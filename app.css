@@ -234,14 +234,14 @@ button {
 .header.conceptual {
   width: 100vh;
   transform-origin: 0 50%;
-  transform: rotate(-90deg) translate(-96%, -100%);
+  transform: rotate(-90deg) translate(-50vh, -100%);
 }
 .createLoom .header.conceptual {
-  transform: rotate(-90deg) translate(-96%, 50%);
+  transform: rotate(-90deg) translate(-50vh, 50%);
 }
 .showHaiku .header.conceptual,
 .animateLoom .header.conceptual {
-  transform: rotate(-90deg) translate(-96%, -100%) !important;
+  transform: rotate(-90deg) translate(-50vh, -100%) !important;
 }
 .openHaiku .header.conceptual {
   opacity: 0;
